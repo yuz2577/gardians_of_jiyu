@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tourney:wght@200&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tourney:wght@900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mouseBox">
+        <div id="mouseCursor"><span id="mouseName">GROOT</span></div>
+    </div>
+    <div id="bgWrap">
+        <img src="img/gaoLogo.png" id="logo">
+        <ul id="gaoPhotoWrap">
+            <li class="gaoPhoto"></li>
+            <li class="gaoPhoto"></li>
+            <li class="gaoPhoto"></li>
+            <li class="gaoPhoto"></li>
+            <li class="gaoPhoto"></li>
+        </ul>
+
+        <div id="whenClickDIV">
+            <div id="blackBg"></div>
+            <span id="close">X</span>
+            <div class="profileName" id="leftName">GROOT</div>
+            <div class="profileName" id="rightName">GROOT</div>
+            <div id="profileQu">
+                "I am Groot. <br>
+                We are Groot."
+            </div>
+            <button id="goGame">Play Game</button>
+        </div>
+    </div>
+    <section id="gameSC">
+        <div id="game">
+            <ul id="gameBgWrap">
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+            </ul>
+            <button type="button" id="startBtn">Press Start</button>
+            <div id="goToTop">Reselect Chracter</div>
+            <div id="rule">Game Rule?</div>
+            <div id="gameArea">
+            </div>
+            <div class="messageArea hide"></div>
+            <div class="gotoTop2 hide">Reselect Chracter : CLICK HERE</div>
+            <div id="score"></div>
+            <div class="rulebook hide">
+                <ul>
+                    <li>
+                        <p class="ruleBookText">MOVE</p>
+                        <p class="ruleIMG"><img src="img/keyboardArrow.png"></p>
+                    </li>
+                    <li>
+                        <p class="ruleBookText">SHOOTING
+                            <span>(슈팅은 한 번씩 하나만 쏠 수 있습니다)</span>
+                        </p>
+                        <p class="ruleIMG"><img src="img/keySpace.png"></p>
+                    </li>
+                </ul>
+                <span id="ifDown">*바닥에 닿을 시 게임 종료*</span>
+                <div id="ruleClose">X</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
