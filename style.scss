@@ -1,0 +1,444 @@
+* {margin: 0px; padding: 0px; box-sizing: border-box; cursor: none;}
+ul,li {list-style: none;}
+
+/**************************************/
+@keyframes clicks{
+    0% {
+        transform:scale(.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+body { 
+    cursor: none; 
+    overflow: hidden;
+}
+#mouseBox {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 100;
+    pointer-events: none;
+    transition: .15s;
+    #mouseCursor {
+        position: absolute;
+        display: block;
+        width: 80px; height: 80px;
+        border-radius: 50%;
+        transition: all .5s ease-in-out;
+        margin: -40px 0 0 -40px;
+        z-index :100;
+        transform: scale(1);
+        border: rgb(255, 255, 255) 2px solid;
+        animation: NONE;
+        &.mouseEnter { 
+            transform: scale(.5);
+            border : rgba(255, 255, 255, 0) 2px solid;
+            background : rgba(255, 255, 255, 0.582) ;
+        }
+        &.mouseColor {
+            border: black solid 2px;
+        }
+        #mouseName {
+            color: white;
+            position: absolute;
+            width: 5vw;
+            top: 110%;
+            transform: translate(-50%,-50%);
+            transition: .5s ease-in-out;
+            opacity: 1;
+            left: 110px;
+            font-family: 'Bebas Neue', cursive;
+            // font-family: 'Staatliches', cursive;
+            font-size: 5vw;
+            font-style: italic;
+        }
+    }
+
+}
+#bgWrap {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    #logo {
+        position: absolute;
+        z-index: 100;
+        width: 20vw;
+        left: 49.8vw;
+        transform: translate(-50%,0%)
+    }
+    ul {
+        width: 100%; height: 100%;
+        display: flex;
+        overflow: hidden;
+        position: absolute;
+        z-index: 50;
+        li {
+            width: 20%;
+            height: 100%;
+            background-image: url("../img/groot0.png");
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: saturate(.3);
+            transition: .5s;
+            &:hover {
+                filter: saturate(1);
+                width: 30vw;
+            }
+            &:nth-child(2) {
+                background: url("../img/rocket0.png");
+                background-position:center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            } 
+            &:nth-child(3) {
+                background: url("../img/starlord0.png");
+                background-position:center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            } 
+            &:nth-child(4) {
+                background: url("../img/gamora0.png");
+                background-position:center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            } 
+            &:nth-child(5) {
+                background: url("../img/drax0.png");
+                background-position:center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            } 
+            }
+        }
+    }
+
+    #whenClickDIV {
+        width: 100vw; height: 100vh;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        background: url('../img/drax.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        // display: none;
+        transition: .8s;
+        z-index: 40;
+        #blackBg {
+            width: 100vw; height: 100vh;
+            background : black;
+            opacity: 0;
+            position: absolute;
+            transition: .5s;
+            z-index: 0;
+        }
+        #close {
+            color: white;
+            font-size: 4vw;
+            position: absolute;
+            top: 0vh;
+            left: 95vw;
+            transition: 1s;
+            z-index: 120;
+            opacity: 0;
+        }
+        .profileName {
+            color : white;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20vw;
+            font-style: italic;
+            position: absolute;
+            z-index: 100;
+        }
+        #leftName {
+            left: -100vw;
+            transition: .5s;
+        }
+        #rightName {
+            left: 100vw;
+            top: 30vh;
+            transition: .5s;
+        }
+        #profileQu {
+            font-family: 'Fjalla One', sans-serif;
+            font-weight: lighter;
+            color: rgb(214, 214, 214);
+            font-size: 1.5vw;
+            font-style: italic;
+            position: absolute;
+            transform:translate(-50%,-50%);
+            top: 150vh; left: 70vw;
+            z-index: 100;
+            width: 40vw;
+            text-align: right;
+            transition: .5s;
+        }
+        #goGame {
+            position: absolute;
+            z-index: 100;
+            padding: 2vh 5vw;
+            border-radius: 60px;
+            transform: translate(-50%,-50%);
+            top: 73vh; left: 25vw;
+            background-color: #33f5ff;
+            color: white;
+            border: none;
+            font-family: 'Fjalla One', sans-serif;
+            font-weight: 900;
+            font-size: 3vw;
+            font-style: italic;
+            opacity: 0;
+            transition: .5s;
+            box-shadow: white 5px 5px 0px;
+            &:hover {
+                color: black;
+                box-shadow: rgb(0, 0, 0) 2px 2px 0px;
+            }
+        }
+    }
+
+
+//////////////////게임/////////////
+#gameSC {
+    width:100vw;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    #game {
+        height: 100vh; width: 100%;
+        position: relative;
+        #gameBgWrap {
+            position: absolute;
+            display: flex;
+            height: 100%;
+            left: 0;
+            // border : solid 2px blue;
+            .gameBg{
+                background-image:url('../img/gameBg.png');
+                width: 100vw; height: 100%;
+            }
+        }
+        .hide {
+            display: none;
+        }
+        #gameArea {
+            width: 100%; height: 100%;
+            background: black;
+            .gamer {
+                position: relative;
+                top: 100px; left: 50px;
+                // background-image: url('/img/ingameRocket1.png');
+                width: 150px; height: 200px;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                // border : solid 2px blue;
+                .shootDiv {
+                    width: 10px; height: 10px;
+                    position: absolute;
+                    background : red;
+                    top: 30%; left: 105%; 
+                    transform: translate(-50%,-50%);
+                }
+            }
+            .enemyDiv {
+                position: absolute;
+                background: red;
+                width: 100px;
+                height: 100px;
+                left: 100%;
+
+            }
+
+        }
+        .messageArea {
+            position: absolute;
+            font-family: 'Tourney', cursive;
+            font-size: 2vw;
+            color: white;
+            top: 50vh; left: 50vw;
+            transform: translate(-50%,-50%);
+            padding: 20px;
+            text-align: center;
+            z-index: 20;
+            p {
+                font-size: 5vw;
+                color: gold;
+            }
+            span {
+                &:hover {
+                    font-weight: 600;
+                }
+            }
+        }
+        #startBtn {
+            position: absolute;
+            transform: translate(-50%,-50%);
+            width: 40vw;
+            left: 50vw;
+            top: 50vh;
+            color: rgb(255, 255, 255);
+            background: linear-gradient(#6717cd , #2871fa);
+            border-radius: 100px;
+            border: none;
+            padding: 20px 0px;
+            font-family: 'Tourney', cursive;
+            font-size: 5vw;
+            transition: .5s;
+            font-weight: 300;
+            // border: solid 2px white;
+            // box-shadow: white 10px 10px 0;
+            &:hover {
+                // border: solid 4px white;
+                font-family: 'Tourney', cursive;
+                font-weight: 600;
+                box-shadow: #6f00ff 0px  0px 50px;
+                // box-shadow: white 5px 5px 0;
+            }
+        }
+        .gotoTop2 {
+            position: absolute;
+            top: 80vh; left: 55vw;
+            transform: translate(-50%,-50%);
+            color: white;
+            font-size: 2vw;
+            width: 40vw; height: 10vh;
+            font-family: 'Tourney', cursive;
+            &:hover {
+                font-weight: 600;
+            }
+        }
+    }
+    #score {
+        font-family: 'Bebas Neue', cursive;
+        position: absolute;
+        top: 3vh; left: 0; right: 0;
+        color: rgb(255, 250, 220); text-align: center;
+        height: 50px; font-size: 1.5em;
+    }
+    .rulebook {
+        font-family: 'Sam3KRFont';
+        color: black;
+        font-size: 2vw;
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+        top: 55vh; left: 50vw;
+        transform: translate(-50%,-50%);
+        height: 60vh; width: 50vw;
+        ul {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            li {
+                display: flex;
+                width: 100%;
+                height: 25%;
+                .ruleBookText {
+                    width: 50%;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    padding-right: 1vw;
+                    text-align: right;
+                }
+                .ruleIMG {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 50%;
+                    }
+                }
+            }
+            li:nth-child(2) {
+                .ruleBookText {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+                    width: 50%;
+                    span {
+                        font-size: 1.1vw;
+                    }
+                }
+                .ruleIMG {
+                    padding-left: 1.5vw;
+                }
+            }
+        }
+        #ifDown{
+            position: absolute;
+            z-index: 20;
+            top: 53vh;
+            width: 100%;
+            text-align: center;
+            font-size: 1.2vw;
+        }
+        #ruleClose {
+            position: absolute;
+            top: 1vh;
+            left: 47vw;
+            font-size: 3vw;
+        }
+
+    }
+    #goToTop {
+        color: white;
+        font-size: 1.5vw;
+        position: absolute;
+        top: 70vh; left: 50vw;
+        transform: translate(-50%,-50%);
+        font-family: 'Tourney', cursive;
+        // box-shadow: #6f00ff 0px  0px 50px;
+        background: linear-gradient(#2871fa,#6717cd );
+        padding: 20px 40px;
+        border-radius: 50px;
+        transition:.5s;
+        &:hover {
+            font-weight: 600;
+            box-shadow: #6f00ff 0px  0px 50px;
+        }
+    }
+    #rule {
+        color: white;
+        font-size: 1.2vw;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 80vh;
+        left: 50vw;
+        font-family: 'Tourney', cursive;
+        background: linear-gradient(#2871fa,#6717cd );
+        padding: 20px 40px;
+        border-radius: 50px;
+        transition:.5s;
+        &:hover {
+            font-weight: 600;
+            box-shadow: #6f00ff 0px  0px 50px;
+        }
+    }
+
+}
+
+.pipe {
+    position: absolute;
+    width: 50px;
+}
+
+@font-face {
+    font-family: 'Sam3KRFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Sam3KRFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.powerUp {
+    width: 50px;
+    position: absolute;
+}

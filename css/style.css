@@ -1,0 +1,593 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+/**************************************/
+@-webkit-keyframes clicks {
+  0% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes clicks {
+  0% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+body {
+  cursor: none;
+  overflow: hidden;
+}
+
+#mouseBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  -webkit-transition: .15s;
+  transition: .15s;
+}
+
+#mouseBox #mouseCursor {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  margin: -40px 0 0 -40px;
+  z-index: 100;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  border: white 2px solid;
+  -webkit-animation: NONE;
+          animation: NONE;
+}
+
+#mouseBox #mouseCursor.mouseEnter {
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  border: rgba(255, 255, 255, 0) 2px solid;
+  background: rgba(255, 255, 255, 0.582);
+}
+
+#mouseBox #mouseCursor.mouseColor {
+  border: black solid 2px;
+}
+
+#mouseBox #mouseCursor #mouseName {
+  color: white;
+  position: absolute;
+  width: 5vw;
+  top: 110%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  opacity: 1;
+  left: 110px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 5vw;
+  font-style: italic;
+}
+
+#bgWrap {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+#bgWrap #logo {
+  position: absolute;
+  z-index: 100;
+  width: 20vw;
+  left: 49.8vw;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+}
+
+#bgWrap ul {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  z-index: 50;
+}
+
+#bgWrap ul li {
+  width: 20%;
+  height: 100%;
+  background-image: url("../img/groot0.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-filter: saturate(0.3);
+          filter: saturate(0.3);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+#bgWrap ul li:hover {
+  -webkit-filter: saturate(1);
+          filter: saturate(1);
+  width: 30vw;
+}
+
+#bgWrap ul li:nth-child(2) {
+  background: url("../img/rocket0.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bgWrap ul li:nth-child(3) {
+  background: url("../img/starlord0.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bgWrap ul li:nth-child(4) {
+  background: url("../img/gamora0.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bgWrap ul li:nth-child(5) {
+  background: url("../img/drax0.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#whenClickDIV {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  background: url("../img/drax.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-transition: .8s;
+  transition: .8s;
+  z-index: 40;
+}
+
+#whenClickDIV #blackBg {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: .5s;
+  transition: .5s;
+  z-index: 0;
+}
+
+#whenClickDIV #close {
+  color: white;
+  font-size: 4vw;
+  position: absolute;
+  top: 0vh;
+  left: 95vw;
+  -webkit-transition: 1s;
+  transition: 1s;
+  z-index: 120;
+  opacity: 0;
+}
+
+#whenClickDIV .profileName {
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20vw;
+  font-style: italic;
+  position: absolute;
+  z-index: 100;
+}
+
+#whenClickDIV #leftName {
+  left: -100vw;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+#whenClickDIV #rightName {
+  left: 100vw;
+  top: 30vh;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+#whenClickDIV #profileQu {
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: lighter;
+  color: #d6d6d6;
+  font-size: 1.5vw;
+  font-style: italic;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 150vh;
+  left: 70vw;
+  z-index: 100;
+  width: 40vw;
+  text-align: right;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+#whenClickDIV #goGame {
+  position: absolute;
+  z-index: 100;
+  padding: 2vh 5vw;
+  border-radius: 60px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 73vh;
+  left: 25vw;
+  background-color: #33f5ff;
+  color: white;
+  border: none;
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: 900;
+  font-size: 3vw;
+  font-style: italic;
+  opacity: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-box-shadow: white 5px 5px 0px;
+          box-shadow: white 5px 5px 0px;
+}
+
+#whenClickDIV #goGame:hover {
+  color: black;
+  -webkit-box-shadow: black 2px 2px 0px;
+          box-shadow: black 2px 2px 0px;
+}
+
+#gameSC {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+#gameSC #game {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+#gameSC #game #gameBgWrap {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  left: 0;
+}
+
+#gameSC #game #gameBgWrap .gameBg {
+  background-image: url("../img/gameBg.png");
+  width: 100vw;
+  height: 100%;
+}
+
+#gameSC #game .hide {
+  display: none;
+}
+
+#gameSC #game #gameArea {
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+#gameSC #game #gameArea .gamer {
+  position: relative;
+  top: 100px;
+  left: 50px;
+  width: 150px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#gameSC #game #gameArea .gamer .shootDiv {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background: red;
+  top: 30%;
+  left: 105%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#gameSC #game #gameArea .enemyDiv {
+  position: absolute;
+  background: red;
+  width: 100px;
+  height: 100px;
+  left: 100%;
+}
+
+#gameSC #game .messageArea {
+  position: absolute;
+  font-family: 'Tourney', cursive;
+  font-size: 2vw;
+  color: white;
+  top: 50vh;
+  left: 50vw;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+  z-index: 20;
+}
+
+#gameSC #game .messageArea p {
+  font-size: 5vw;
+  color: gold;
+}
+
+#gameSC #game .messageArea span:hover {
+  font-weight: 600;
+}
+
+#gameSC #game #startBtn {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 40vw;
+  left: 50vw;
+  top: 50vh;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#6717cd), to(#2871fa));
+  background: linear-gradient(#6717cd, #2871fa);
+  border-radius: 100px;
+  border: none;
+  padding: 20px 0px;
+  font-family: 'Tourney', cursive;
+  font-size: 5vw;
+  -webkit-transition: .5s;
+  transition: .5s;
+  font-weight: 300;
+}
+
+#gameSC #game #startBtn:hover {
+  font-family: 'Tourney', cursive;
+  font-weight: 600;
+  -webkit-box-shadow: #6f00ff 0px  0px 50px;
+          box-shadow: #6f00ff 0px  0px 50px;
+}
+
+#gameSC #game .gotoTop2 {
+  position: absolute;
+  top: 80vh;
+  left: 55vw;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2vw;
+  width: 40vw;
+  height: 10vh;
+  font-family: 'Tourney', cursive;
+}
+
+#gameSC #game .gotoTop2:hover {
+  font-weight: 600;
+}
+
+#gameSC #score {
+  font-family: 'Bebas Neue', cursive;
+  position: absolute;
+  top: 3vh;
+  left: 0;
+  right: 0;
+  color: #fffadc;
+  text-align: center;
+  height: 50px;
+  font-size: 1.5em;
+}
+
+#gameSC .rulebook {
+  font-family: 'Sam3KRFont';
+  color: black;
+  font-size: 2vw;
+  position: absolute;
+  background-color: white;
+  top: 55vh;
+  left: 50vw;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 60vh;
+  width: 50vw;
+}
+
+#gameSC .rulebook ul {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#gameSC .rulebook ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 25%;
+}
+
+#gameSC .rulebook ul li .ruleBookText {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 1vw;
+  text-align: right;
+}
+
+#gameSC .rulebook ul li .ruleIMG {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#gameSC .rulebook ul li .ruleIMG img {
+  width: 50%;
+}
+
+#gameSC .rulebook ul li:nth-child(2) .ruleBookText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 50%;
+}
+
+#gameSC .rulebook ul li:nth-child(2) .ruleBookText span {
+  font-size: 1.1vw;
+}
+
+#gameSC .rulebook ul li:nth-child(2) .ruleIMG {
+  padding-left: 1.5vw;
+}
+
+#gameSC .rulebook #ifDown {
+  position: absolute;
+  z-index: 20;
+  top: 53vh;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2vw;
+}
+
+#gameSC .rulebook #ruleClose {
+  position: absolute;
+  top: 1vh;
+  left: 47vw;
+  font-size: 3vw;
+}
+
+#gameSC #goToTop {
+  color: white;
+  font-size: 1.5vw;
+  position: absolute;
+  top: 70vh;
+  left: 50vw;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: 'Tourney', cursive;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2871fa), to(#6717cd));
+  background: linear-gradient(#2871fa, #6717cd);
+  padding: 20px 40px;
+  border-radius: 50px;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+#gameSC #goToTop:hover {
+  font-weight: 600;
+  -webkit-box-shadow: #6f00ff 0px  0px 50px;
+          box-shadow: #6f00ff 0px  0px 50px;
+}
+
+#gameSC #rule {
+  color: white;
+  font-size: 1.2vw;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 80vh;
+  left: 50vw;
+  font-family: 'Tourney', cursive;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2871fa), to(#6717cd));
+  background: linear-gradient(#2871fa, #6717cd);
+  padding: 20px 40px;
+  border-radius: 50px;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+#gameSC #rule:hover {
+  font-weight: 600;
+  -webkit-box-shadow: #6f00ff 0px  0px 50px;
+          box-shadow: #6f00ff 0px  0px 50px;
+}
+
+.pipe {
+  position: absolute;
+  width: 50px;
+}
+
+@font-face {
+  font-family: 'Sam3KRFont';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Sam3KRFont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.powerUp {
+  width: 50px;
+  position: absolute;
+}
+/*# sourceMappingURL=style.css.map */
