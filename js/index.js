@@ -224,7 +224,10 @@ let gameBg = {
 function start() {
     let gamer = document.createElement('div');
     gamer.classList.add('gamer');
-    document.querySelector('#gameArea').appendChild(gamer)
+    document.querySelector('#gameArea').appendChild(gamer);
+    let shootDiv = document.createElement('div');
+        shootDiv.setAttribute('class','shootDiv');
+        gamer.appendChild(shootDiv);
 
     if (leftName.innerHTML === 'GROOT') {
         gamer.style.backgroundImage ="url('img/ingameGroot0.png')";
@@ -420,11 +423,7 @@ function powerUpGet(powerUpClass, gamer) {
     )
 }
 
-function playGame() {
-    let gamer = document.querySelector('.gamer')
-    let shootDiv = document.createElement('div');
-        shootDiv.setAttribute('class','shootDiv');
-        gamer.appendChild(shootDiv);
+function playGame(){
     if (player.inPlay == true) {
         player.score++;
         score.innerText = `SCORE : ${player.score}`;
