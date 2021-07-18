@@ -232,27 +232,27 @@ function start() {
     shoots.size = 1.1
 
     if (leftName.innerHTML === 'GROOT') {
-        gamer.style.backgroundImage ="url('img/ingameGroot0.png')";
+        gamer.style.backgroundImage ="url('../img/ingameGroot0.png')";
         gamer.style.width ='80px'
         gamer.style.height = '200px';
     }
     if (leftName.innerHTML === 'ROCKET') {
-        gamer.style.backgroundImage ="url('img/ingameRocket1.png')";
+        gamer.style.backgroundImage ="url('../img/ingameRocket1.png')";
         gamer.style.width = '100px';
         gamer.style.height = '100px';
     }
     if (leftName.innerHTML === 'STAR-LORD') {
-        gamer.style.backgroundImage ="url('img/ingameStarlord0.png')";
+        gamer.style.backgroundImage ="url('../img/ingameStarlord0.png')";
         gamer.style.width = '130px'
         gamer.style.height='180px'
     }
     if (leftName.innerHTML === 'GAMORA') {
-        gamer.style.backgroundImage = "url('img/ingameGamora.png')";
+        gamer.style.backgroundImage = "url('../img/ingameGamora.png')";
         gamer.style.width= '100px'
         gamer.style.height='200px'
     }
     if (leftName.innerHTML === 'Destroyer') {
-        gamer.style.backgroundImage ="url('img/ingameDrax0.png')";
+        gamer.style.backgroundImage ="url('../img/ingameDrax0.png')";
         gamer.style.width= '130px'
         gamer.style.height='200px'
     }
@@ -470,23 +470,23 @@ function playGame(){
             // console.log(shoots.x)
 
             if (leftName.innerHTML === 'GROOT') {
-                gamer.style.backgroundImage ="url('img/ingameGroot1.png')";
+                gamer.style.backgroundImage ="url('../img/ingameGroot1.png')";
             }
             if (leftName.innerHTML === 'ROCKET') {
-                gamer.style.backgroundImage ="url('img/ingameRocket0.png')";
+                gamer.style.backgroundImage ="url('../img/ingameRocket0.png')";
                 gamer.style.width = '100px';
                 gamer.style.height = '100px';
                 shootDiv.style.top = '40%'
             }
             if (leftName.innerHTML === 'STAR-LORD') {
-                gamer.style.backgroundImage ="url('img/ingameStarlord1.png')";
+                gamer.style.backgroundImage ="url('../img/ingameStarlord1.png')";
             }
             if (leftName.innerHTML === 'GAMORA') {
-                gamer.style.backgroundImage = "url('img/ingameGamora1.png')";
+                gamer.style.backgroundImage = "url('../img/ingameGamora1.png')";
                 shootDiv.style.top = '68%'
             }
             if (leftName.innerHTML === 'Destroyer') {
-                gamer.style.backgroundImage ="url('img/ingameDrax1.png')";
+                gamer.style.backgroundImage ="url('../img/ingameDrax1.png')";
                 shootDiv.style.top = '50%'
             }
         }
@@ -503,22 +503,22 @@ function playGame(){
 
                       
             if (leftName.innerHTML === 'GROOT') {
-                gamer.style.backgroundImage ="url('img/ingameGroot0.png')";
+                gamer.style.backgroundImage ="url('../img/ingameGroot0.png')";
                 gamer.style.backgroundRepeat = 'no-repeat';
             }
             if (leftName.innerHTML === 'ROCKET') {
-                gamer.style.backgroundImage ="url('img/ingameRocket1.png')";
+                gamer.style.backgroundImage ="url('../img/ingameRocket1.png')";
                 gamer.style.width = '100px';
                 gamer.style.height = '100px';
             }
             if (leftName.innerHTML === 'STAR-LORD') {
-                gamer.style.backgroundImage ="url('img/ingameStarlord0.png')";
+                gamer.style.backgroundImage ="url('../img/ingameStarlord0.png')";
             }
             if (leftName.innerHTML === 'GAMORA') {
-                gamer.style.backgroundImage = "url('img/ingameGamora.png')";
+                gamer.style.backgroundImage = "url('../img/ingameGamora.png')";
             }
             if (leftName.innerHTML === 'Destroyer') {
-                gamer.style.backgroundImage ="url('img/ingameDrax0.png')";
+                gamer.style.backgroundImage ="url('../img/ingameDrax0.png')";
             }
             // let shootDivRect = shootDiv.getBoundingClientRect();
             // console.log(pipeRect)
