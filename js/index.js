@@ -593,21 +593,7 @@ function powerUpgrade() {
     powerUp.parentElement.removeChild(powerUp);;
 }
 
-function noPipes(pipe, shootDiv) {
-    let pipeRect = pipe.getBoundingClientRect();
-    // console.log(pipeRect.left +'파이프파이프파이프🔥🥚🥚')
-    let shootRects = shootDiv.getBoundingClientRect();
-    // console.log(shootRect.x + '슛슛슛슛슈슛슛슈슈슈슛슛🐱‍👤🐱‍👤🐱‍👤')
-        if (pipeRect.top < shootRects.y && pipeRect.bottom > shootRects.y) {
-            // console.log('fdfdf')
-            if ( pipeRect.left < shootRects.right && pipeRect.right > shootRects.left) {
-                    pipe.style.display = 'none';
-                    console.log('dd'); 
-                    shoots.x = 0;     
-                    player.score += 500;  
-        }
-    }
-}
+
 function keyboardOn(e) {
     // console.log('on');
     keys[e.code] = true;
