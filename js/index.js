@@ -232,27 +232,27 @@ function start() {
     shoots.size = 1.1
 
     if (leftName.innerHTML === 'GROOT') {
-        gamer.style.backgroundImage ="url('img/ingameGroot0.png')";
+        gamer.style.backgroundImage ="url('img/ingamegroot0.png')";
         gamer.style.width ='80px'
         gamer.style.height = '200px';
     }
     if (leftName.innerHTML === 'ROCKET') {
-        gamer.style.backgroundImage ="url('img/ingameRocket1.png')";
+        gamer.style.backgroundImage ="url('img/ingamerocket1.png')";
         gamer.style.width = '100px';
         gamer.style.height = '100px';
     }
     if (leftName.innerHTML === 'STAR-LORD') {
-        gamer.style.backgroundImage ="url('img/ingameStarlord0.png')";
+        gamer.style.backgroundImage ="url('img/ingamestarlord0.png')";
         gamer.style.width = '130px'
         gamer.style.height='180px'
     }
     if (leftName.innerHTML === 'GAMORA') {
-        gamer.style.backgroundImage = "url('img/ingameGamora.png')";
+        gamer.style.backgroundImage = "url('img/ingamegamora.png')";
         gamer.style.width= '100px'
         gamer.style.height='200px'
     }
     if (leftName.innerHTML === 'Destroyer') {
-        gamer.style.backgroundImage ="url('img/ingameDrax0.png')";
+        gamer.style.backgroundImage ="url('img/ingamedrax0.png')";
         gamer.style.width= '130px'
         gamer.style.height='200px'
     }
@@ -470,23 +470,23 @@ function playGame(){
             // console.log(shoots.x)
 
             if (leftName.innerHTML === 'GROOT') {
-                gamer.style.backgroundImage ="url('img/ingameGroot1.png')";
+                gamer.style.backgroundImage ="url('img/ingamegroot1.png')";
             }
             if (leftName.innerHTML === 'ROCKET') {
-                gamer.style.backgroundImage ="url('img/ingameRocket0.png')";
+                gamer.style.backgroundImage ="url('img/ingamerocket0.png')";
                 gamer.style.width = '100px';
                 gamer.style.height = '100px';
                 shootDiv.style.top = '40%'
             }
             if (leftName.innerHTML === 'STAR-LORD') {
-                gamer.style.backgroundImage ="url('img/ingameStarlord1.png')";
+                gamer.style.backgroundImage ="url('img/ingamestarlord1.png')";
             }
             if (leftName.innerHTML === 'GAMORA') {
-                gamer.style.backgroundImage = "url('img/ingameGamora1.png')";
+                gamer.style.backgroundImage = "url('img/ingamegamora1.png')";
                 shootDiv.style.top = '68%'
             }
             if (leftName.innerHTML === 'Destroyer') {
-                gamer.style.backgroundImage ="url('img/ingameDrax1.png')";
+                gamer.style.backgroundImage ="url('img/ingamedrax1.png')";
                 shootDiv.style.top = '50%'
             }
         }
@@ -503,22 +503,22 @@ function playGame(){
 
                       
             if (leftName.innerHTML === 'GROOT') {
-                gamer.style.backgroundImage ="url('img/ingameGroot0.png')";
+                gamer.style.backgroundImage ="url('img/ingamegroot0.png')";
                 gamer.style.backgroundRepeat = 'no-repeat';
             }
             if (leftName.innerHTML === 'ROCKET') {
-                gamer.style.backgroundImage ="url('img/ingameRocket1.png')";
+                gamer.style.backgroundImage ="url('img/ingamerocket1.png')";
                 gamer.style.width = '100px';
                 gamer.style.height = '100px';
             }
             if (leftName.innerHTML === 'STAR-LORD') {
-                gamer.style.backgroundImage ="url('img/ingameStarlord0.png')";
+                gamer.style.backgroundImage ="url('img/ingamestarlord0.png')";
             }
             if (leftName.innerHTML === 'GAMORA') {
-                gamer.style.backgroundImage = "url('img/ingameGamora.png')";
+                gamer.style.backgroundImage = "url('img/ingamegamora.png')";
             }
             if (leftName.innerHTML === 'Destroyer') {
-                gamer.style.backgroundImage ="url('img/ingameDrax0.png')";
+                gamer.style.backgroundImage ="url('img/ingamedrax0.png')";
             }
             // let shootDivRect = shootDiv.getBoundingClientRect();
             // console.log(pipeRect)
@@ -549,23 +549,23 @@ function playGame(){
     
     
 }
-// function noPipes(pipe, shootDiv) {
-//     let pipeRect = pipe.getBoundingClientRect();
-//     // console.log(pipeRect.left +'파이프파이프파이프🔥🥚🥚')
-//     let shootRect = shootDiv.getBoundingClientRect();
-//     // console.log(shootRect.x + '슛슛슛슛슈슛슛슈슈슈슛슛🐱‍👤🐱‍👤🐱‍👤')
-//         if (pipeRect.top < shootRect.y && pipeRect.bottom > shootRect.y) {
-//             // console.log('fdfdf')
-//             if ( pipeRect.left < shootRect.right && pipeRect.right > shootRect.left) {
-//                     pipe.style.display = 'none';
-//                     console.log('dd'); 
-//                     shoots.x = 0;     
-//                     player.score += 500;  
-//         }
-//     }
+function noPipes(pipe, shootDiv) {
+    let pipeRect = pipe.getBoundingClientRect();
+    // console.log(pipeRect.left +'파이프파이프파이프🔥🥚🥚')
+    let shootRect = shootDiv.getBoundingClientRect();
+    // console.log(shootRect.x + '슛슛슛슛슈슛슛슈슈슈슛슛🐱‍👤🐱‍👤🐱‍👤')
+        if (pipeRect.top < shootRect.y && pipeRect.bottom > shootRect.y) {
+            // console.log('fdfdf')
+            if ( pipeRect.left < shootRect.right && pipeRect.right > shootRect.left) {
+                    pipe.style.display = 'none';
+                    console.log('dd'); 
+                    shoots.x = 0;     
+                    player.score += 500;  
+        }
+    }
 
     
-// }
+}
 
 function playGameOver() {
     player.inPlay = false;
