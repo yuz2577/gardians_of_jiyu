@@ -229,28 +229,30 @@ function start() {
         shootDiv.setAttribute('class','shootDiv');
         gamer.appendChild(shootDiv);
 
+    shoots.size = 1.1
+
     if (leftName.innerHTML === 'GROOT') {
-        gamer.style.backgroundImage ="url('img/ingameGroot0.png')";
+        gamer.style.backgroundImage ="url('/img/ingameGroot0.png')";
         gamer.style.width ='80px'
         gamer.style.height = '200px';
     }
     if (leftName.innerHTML === 'ROCKET') {
-        gamer.style.backgroundImage ="url('img/ingameRocket1.png')";
+        gamer.style.backgroundImage ="url('/img/ingameRocket1.png')";
         gamer.style.width = '100px';
         gamer.style.height = '100px';
     }
     if (leftName.innerHTML === 'STAR-LORD') {
-        gamer.style.backgroundImage ="url('img/ingameStarlord0.png')";
+        gamer.style.backgroundImage ="url('/img/ingameStarlord0.png')";
         gamer.style.width = '130px'
         gamer.style.height='180px'
     }
     if (leftName.innerHTML === 'GAMORA') {
-        gamer.style.backgroundImage = "url('img/ingameGamora.png')";
+        gamer.style.backgroundImage = "url('/img/ingameGamora.png')";
         gamer.style.width= '100px'
         gamer.style.height='200px'
     }
     if (leftName.innerHTML === 'Destroyer') {
-        gamer.style.backgroundImage ="url('img/ingameDrax0.png')";
+        gamer.style.backgroundImage ="url('/img/ingameDrax0.png')";
         gamer.style.width= '130px'
         gamer.style.height='200px'
     }
@@ -346,7 +348,7 @@ function makePipe(pipePos) { //
 function movePipes(gamer) {
     let pipes = document.querySelectorAll('.pipe');
     let counter = 0;
-    pipes.forEach(function(item) { //item에 들어있는 각각의 pipes들
+    pipes.forEach(function(item) { //item에 들어있는 각각의 pipes
         item.x -= player.speed*2;
         // console.log(player)
         if (player.score >= 5000) {
@@ -468,23 +470,23 @@ function playGame(){
             // console.log(shoots.x)
 
             if (leftName.innerHTML === 'GROOT') {
-                gamer.style.backgroundImage ="url('img/ingameGroot1.png')";
+                gamer.style.backgroundImage ="url('/img/ingameGroot1.png')";
             }
             if (leftName.innerHTML === 'ROCKET') {
-                gamer.style.backgroundImage ="url('img/ingameRocket0.png')";
+                gamer.style.backgroundImage ="url('/img/ingameRocket0.png')";
                 gamer.style.width = '100px';
                 gamer.style.height = '100px';
                 shootDiv.style.top = '40%'
             }
             if (leftName.innerHTML === 'STAR-LORD') {
-                gamer.style.backgroundImage ="url('img/ingameStarlord1.png')";
+                gamer.style.backgroundImage ="url('/img/ingameStarlord1.png')";
             }
             if (leftName.innerHTML === 'GAMORA') {
-                gamer.style.backgroundImage = "url('img/ingameGamora1.png')";
+                gamer.style.backgroundImage = "url('/img/ingameGamora1.png')";
                 shootDiv.style.top = '68%'
             }
             if (leftName.innerHTML === 'Destroyer') {
-                gamer.style.backgroundImage ="url('img/ingameDrax1.png')";
+                gamer.style.backgroundImage ="url('/img/ingameDrax1.png')";
                 shootDiv.style.top = '50%'
             }
         }
@@ -501,22 +503,22 @@ function playGame(){
 
                       
             if (leftName.innerHTML === 'GROOT') {
-                gamer.style.backgroundImage ="url('img/ingameGroot0.png')";
+                gamer.style.backgroundImage ="url('/img/ingameGroot0.png')";
                 gamer.style.backgroundRepeat = 'no-repeat';
             }
             if (leftName.innerHTML === 'ROCKET') {
-                gamer.style.backgroundImage ="url('img/ingameRocket1.png')";
+                gamer.style.backgroundImage ="url('/img/ingameRocket1.png')";
                 gamer.style.width = '100px';
                 gamer.style.height = '100px';
             }
             if (leftName.innerHTML === 'STAR-LORD') {
-                gamer.style.backgroundImage ="url('img/ingameStarlord0.png')";
+                gamer.style.backgroundImage ="url('/img/ingameStarlord0.png')";
             }
             if (leftName.innerHTML === 'GAMORA') {
-                gamer.style.backgroundImage = "url('img/ingameGamora.png')";
+                gamer.style.backgroundImage = "url('/img/ingameGamora.png')";
             }
             if (leftName.innerHTML === 'Destroyer') {
-                gamer.style.backgroundImage ="url('img/ingameDrax0.png')";
+                gamer.style.backgroundImage ="url('/img/ingameDrax0.png')";
             }
             // let shootDivRect = shootDiv.getBoundingClientRect();
             // console.log(pipeRect)
@@ -544,21 +546,7 @@ function playGame(){
         // console.log(x)
 
     }
-    function noPipes(pipe, shootDiv) {
-        let pipeRect = pipe.getBoundingClientRect();
-        // console.log(pipeRect.left +'파이프파이프파이프🔥🥚🥚')
-        let shootRects = shootDiv.getBoundingClientRect();
-        // console.log(shootRect.x + '슛슛슛슛슈슛슛슈슈슈슛슛🐱‍👤🐱‍👤🐱‍👤')
-            if (pipeRect.top < shootRects.y && pipeRect.bottom > shootRects.y) {
-                // console.log('fdfdf')
-                if ( pipeRect.left < shootRects.right && pipeRect.right > shootRects.left) {
-                        pipe.style.display = 'none';
-                        console.log('dd'); 
-                        shoots.x = 0;     
-                        player.score += 500;  
-            }
-        }
-    }
+    
     
 }
 // function noPipes(pipe, shootDiv) {
@@ -595,8 +583,30 @@ function powerUpgrade() {
     let shootDiv = document.querySelector('.shootDiv');
     let powerUp = document.querySelector('.powerUp')
     shootDiv.style.transform = `scale(${shoots.size})`
-    shoots.size += 0.15
+    if(shoots.size >= 2.2) {
+        shoots.size=2.0;
+    }
+    if(shoots.size <  2.2) {
+        shoots.size += 0.15
+    }
+    console.log(shoots.size)
     powerUp.parentElement.removeChild(powerUp);;
+}
+
+function noPipes(pipe, shootDiv) {
+    let pipeRect = pipe.getBoundingClientRect();
+    // console.log(pipeRect.left +'파이프파이프파이프🔥🥚🥚')
+    let shootRects = shootDiv.getBoundingClientRect();
+    // console.log(shootRect.x + '슛슛슛슛슈슛슛슈슈슈슛슛🐱‍👤🐱‍👤🐱‍👤')
+        if (pipeRect.top < shootRects.y && pipeRect.bottom > shootRects.y) {
+            // console.log('fdfdf')
+            if ( pipeRect.left < shootRects.right && pipeRect.right > shootRects.left) {
+                    pipe.style.display = 'none';
+                    console.log('dd'); 
+                    shoots.x = 0;     
+                    player.score += 500;  
+        }
+    }
 }
 function keyboardOn(e) {
     // console.log('on');
