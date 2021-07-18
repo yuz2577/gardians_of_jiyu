@@ -353,10 +353,10 @@ function movePipes(gamer) {
             item.x -= player.speed*1.1;
         }
         if (player.score >= 10000) {
-            item.x -= player.speed*2;
+            item.x -= player.speed*1.3;
         }
         if (player.score >= 15000) {
-            item.x -= player.speed*3;
+            item.x -= player.speed*1.5;
         }
         item.style.left = `${item.x}px`;
         if(item.x < 0) {
