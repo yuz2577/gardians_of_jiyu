@@ -445,6 +445,7 @@ body {
           flex-direction: column;
   width: 100%;
   height: 100%;
+  top: -5%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -487,7 +488,7 @@ body {
   width: 50%;
 }
 
-#gameSC .rulebook ul li:nth-child(2) .ruleBookText {
+#gameSC .rulebook ul li:not(nth:nth-child(1)) .ruleBookText {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -504,12 +505,16 @@ body {
   width: 50%;
 }
 
-#gameSC .rulebook ul li:nth-child(2) .ruleBookText span {
+#gameSC .rulebook ul li:not(nth:nth-child(1)) .ruleBookText span {
   font-size: 1.1vw;
 }
 
-#gameSC .rulebook ul li:nth-child(2) .ruleIMG {
+#gameSC .rulebook ul li:not(nth:nth-child(1)) .ruleIMG {
   padding-left: 1.5vw;
+}
+
+#gameSC .rulebook ul li:nth-child(3) img {
+  width: 15%;
 }
 
 #gameSC .rulebook #ifDown {
@@ -557,7 +562,7 @@ body {
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  top: 80vh;
+  top: 30vh;
   left: 50vw;
   font-family: 'Tourney', cursive;
   background: -webkit-gradient(linear, left top, left bottom, from(#2871fa), to(#6717cd));
@@ -589,5 +594,9 @@ body {
 .powerUp {
   width: 50px;
   position: absolute;
+}
+
+.imgload {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

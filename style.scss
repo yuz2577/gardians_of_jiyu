@@ -338,6 +338,7 @@ body {
             flex-direction: column;
             width: 100%;
             height: 100%;
+            top: -5%;
             justify-content: center;
             li {
                 display: flex;
@@ -360,7 +361,7 @@ body {
                     }
                 }
             }
-            li:nth-child(2) {
+            li:not(nth:nth-child(1)) {
                 .ruleBookText {
                     display: flex;
                     flex-direction: column;
@@ -373,6 +374,11 @@ body {
                 }
                 .ruleIMG {
                     padding-left: 1.5vw;
+                }
+            }
+            li:nth-child(3) {
+                img {
+                    width: 15%;
                 }
             }
         }
@@ -414,7 +420,7 @@ body {
         font-size: 1.2vw;
         position: absolute;
         transform: translate(-50%,-50%);
-        top: 80vh;
+        top: 30vh;
         left: 50vw;
         font-family: 'Tourney', cursive;
         background: linear-gradient(#2871fa,#6717cd );
