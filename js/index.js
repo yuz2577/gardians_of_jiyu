@@ -263,6 +263,7 @@ function start() {
     gameArea.innerHTML = '';
 
     goToTop2.classList.add('hide');
+    goToTop2.classList.add('opacityHide')
     rule.classList.add('hide');
 
     messageArea.classList.add('hide');
@@ -570,7 +571,7 @@ function noships(ship, shootDiv) {
 function playGameOver() {
     player.inPlay = false;
     messageArea.classList.remove('hide');
-    goToTop2.classList.remove('hide');
+    goToTop2.classList.remove('opacityHide');
 
     messageArea.innerHTML = `
     Your score is <p> ${player.score} </p>
