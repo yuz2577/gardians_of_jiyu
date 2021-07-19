@@ -199,11 +199,11 @@ let player = {
         x:0, y:0, speed:2, score:0, inPlay: false
     }
 
-let pipe = {
+let ship = {
     startPos : 0, 
     spaceBetweenRow: 0, 
     spaceBetweenCol: 0, 
-    pipeCount: 20
+    shipCount: 20
 }
 
 let powerUpClass = {
@@ -273,17 +273,17 @@ function start() {
     gameArea.appendChild(gamer);
     
 
-    pipe.startPos = 0;
-    pipe.spaceBetweenRow = 150;
-    pipe.pipeCount = Math.floor(gameArea.offsetWidth / pipe.spaceBetweenRow)
-    for (let i=0; i<pipe.pipeCount; i++) {
-        makePipe(pipe.startPos * pipe.spaceBetweenRow);
-        pipe.startPos++;
+    ship.startPos = 0;
+    ship.spaceBetweenRow = 150;
+    ship.shipCount = Math.floor(gameArea.offsetWidth / ship.spaceBetweenRow)
+    for (let i=0; i<ship.shipCount; i++) {
+        makeship(ship.startPos * ship.spaceBetweenRow);
+        ship.startPos++;
     }
 
     powerUpClass.startPos = 0;
     powerUpClass.spaceBetweenRow = 900;
-    powerUpClass.pipeCount = Math.floor(gameArea.offsetWidth / powerUpClass.spaceBetweenRow);
+    powerUpClass.shipCount = Math.floor(gameArea.offsetWidth / powerUpClass.spaceBetweenRow);
     for (let i=0; i<powerUpClass.powerUpCount; i++) {
         makePowerUp(powerUpClass.startPos * powerUpClass.spaceBetweenRow);
         powerUpClass.startPos++;
@@ -316,39 +316,39 @@ function makePowerUp(powerUpPos) {
     gameArea.appendChild(powerUp);
 }
 
-function makePipe(pipePos) { //
-    // console.log(pipe) 
+function makeship(shipPos) { //
+    // console.log(ship) 
     let totalHeight = gameArea.offsetHeight,
         totalWidth = gameArea.offsetWidth,
-        pipeUp = document.createElement('div'); //위쪽파이프
-        // console.log(pipePos);
-    pipeUp.classList.add('pipe');
-    pipeUp.height = Math.floor(Math.random()*350);
-    pipeUp.style.height = '50px'
-    pipeUp.style.left = totalWidth + pipePos + 'px';
-    pipeUp.x = totalWidth + pipePos;
-    pipeUp.style.top = Math.floor(Math.random()*1000) + 'px';
-    pipeUp.style.backgroundImage = "url('img/spaceShip.png')";
+        shipUp = document.createElement('div'); //위쪽파이프
+        // console.log(shipPos);
+    shipUp.classList.add('ship');
+    shipUp.height = Math.floor(Math.random()*350);
+    shipUp.style.height = '50px'
+    shipUp.style.left = totalWidth + shipPos + 'px';
+    shipUp.x = totalWidth + shipPos;
+    shipUp.style.top = Math.floor(Math.random()*1000) + 'px';
+    shipUp.style.backgroundImage = "url('img/spaceShip.png')";
 
-    gameArea.appendChild(pipeUp);
+    gameArea.appendChild(shipUp);
 
 
 
-    // let pipeDown = document.createElement('div');
-    // pipeDown.classList.add('pipe');
-    // pipeDown.style.height = totalHeight - pipeUp.height - pipe.spaceBetweenCol +'px';
-    // pipeDown.style.left = totalWidth + pipePos + 'px';
-    // pipeDown.x = totalWidth + pipePos;
-    // pipeDown.style.bottom = '0px';
-    // pipeDown.style.backgroundColor = 'yellow'
+    // let shipDown = document.createElement('div');
+    // shipDown.classList.add('ship');
+    // shipDown.style.height = totalHeight - shipUp.height - ship.spaceBetweenCol +'px';
+    // shipDown.style.left = totalWidth + shipPos + 'px';
+    // shipDown.x = totalWidth + shipPos;
+    // shipDown.style.bottom = '0px';
+    // shipDown.style.backgroundColor = 'yellow'
 
-    // gameArea.appendChild(pipeDown);
+    // gameArea.appendChild(shipDown);
 }   
 
-function movePipes(gamer) {
-    let pipes = document.querySelectorAll('.pipe');
+function moveships(gamer) {
+    let ships = document.querySelectorAll('.ship');
     let counter = 0;
-    pipes.forEach(function(item) { //item에 들어있는 각각의 pipes
+    ships.forEach(function(item) { //item에 들어있는 각각의 ships
         item.x -= player.speed*2;
         // console.log(player)
         if (player.score >= 5000) {
@@ -372,13 +372,13 @@ function movePipes(gamer) {
            }
     });
     for(let i=0; i<counter/2; i++) {
-        makePipe(0);
+        makeship(0);
     }
 }
 function movePowerUp(gamer) {
     let powerUps = document.querySelectorAll('.powerUp');
     let counters = 0;
-    powerUps.forEach(function(items) { //item에 들어있는 각각의 pipes들
+    powerUps.forEach(function(items) { //item에 들어있는 각각의 ships들
     items.x -= player.speed*2;
     if (player.score >= 500) {
         items.x -= player.speed*2.05;
@@ -401,14 +401,14 @@ function movePowerUp(gamer) {
 })
 }
 
-function isCollide(pipe, gamer) {
-    let pipeRect = pipe.getBoundingClientRect();
+function isCollide(ship, gamer) {
+    let shipRect = ship.getBoundingClientRect();
     let gamerRect = gamer.getBoundingClientRect();
     return (
-        pipeRect.bottom > gamerRect.top &&
-        pipeRect.top < gamerRect.bottom &&
-        pipeRect.left < gamerRect.right &&
-        pipeRect.right > gamerRect.left
+        shipRect.bottom > gamerRect.top &&
+        shipRect.top < gamerRect.bottom &&
+        shipRect.left < gamerRect.right &&
+        shipRect.right > gamerRect.left
     );
 //    console.log(gamerRect)
 }
@@ -434,7 +434,7 @@ function playGame(){
         let gamer = document.querySelector('.gamer');
 
         let move = false;
-        movePipes(gamer);
+        moveships(gamer);
         if(player.score >= 5000) {
             movePowerUp(gamer);
         };
@@ -493,10 +493,10 @@ function playGame(){
 
         if (keys.Space == false) {
             let shootDiv = document.querySelector('.shootDiv')
-            let pipes = document.querySelectorAll('.pipe')
+            let ships = document.querySelectorAll('.ship')
             let counter = 0;
-            pipes.forEach(function(item) { //item에 들어있는 각각의 pipes들
-                if (noPipes(item, shootDiv)) {
+            ships.forEach(function(item) { //item에 들어있는 각각의 ships들
+                if (noships(item, shootDiv)) {
                     shoots.x = 0
                 }
             });
@@ -521,7 +521,7 @@ function playGame(){
                 gamer.style.backgroundImage ="url('img/ingamedrax0.png')";
             }
             // let shootDivRect = shootDiv.getBoundingClientRect();
-            // console.log(pipeRect)
+            // console.log(shipRect)
 
 
         }
@@ -549,15 +549,15 @@ function playGame(){
     
     
 }
-function noPipes(pipe, shootDiv) {
-    let pipeRect = pipe.getBoundingClientRect();
-    // console.log(pipeRect.left +'파이프파이프파이프🔥🥚🥚')
+function noships(ship, shootDiv) {
+    let shipRect = ship.getBoundingClientRect();
+    // console.log(shipRect.left +'파이프파이프파이프🔥🥚🥚')
     let shootRect = shootDiv.getBoundingClientRect();
     // console.log(shootRect.x + '슛슛슛슛슈슛슛슈슈슈슛슛🐱‍👤🐱‍👤🐱‍👤')
-        if (pipeRect.top < shootRect.y && pipeRect.bottom > shootRect.y) {
+        if (shipRect.top < shootRect.y && shipRect.bottom > shootRect.y) {
             // console.log('fdfdf')
-            if ( pipeRect.left < shootRect.right && pipeRect.right > shootRect.left) {
-                    pipe.style.display = 'none';
+            if ( shipRect.left < shootRect.right && shipRect.right > shootRect.left) {
+                    ship.style.display = 'none';
                     console.log('dd'); 
                     shoots.x = 0;     
                     player.score += 500;  
