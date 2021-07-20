@@ -596,6 +596,39 @@ function playGame(){
             }
             // let shootDivRect = shootDiv.getBoundingClientRect();
             // console.log(shipRect)
+        }
+
+        if (mobileSpace == false) {
+            let shootDiv = document.querySelector('.shootDiv')
+            let ships = document.querySelectorAll('.ship')
+            let counter = 0;
+            ships.forEach(function(item) { //item에 들어있는 각각의 ships들
+                if (noships(item, shootDiv)) {
+                    shoots.x = 0
+                }
+            });
+
+                      
+            if (leftName.innerHTML === 'GROOT') {
+                gamer.style.backgroundImage ="url('img/ingamegroot0.png')";
+                gamer.style.backgroundRepeat = 'no-repeat';
+            }
+            if (leftName.innerHTML === 'ROCKET') {
+                gamer.style.backgroundImage ="url('img/ingamerocket1.png')";
+                gamer.style.width = '100px';
+                gamer.style.height = '100px';
+            }
+            if (leftName.innerHTML === 'STAR-LORD') {
+                gamer.style.backgroundImage ="url('img/ingamestarlord0.png')";
+            }
+            if (leftName.innerHTML === 'GAMORA') {
+                gamer.style.backgroundImage = "url('img/ingamegamora.png')";
+            }
+            if (leftName.innerHTML === 'Destroyer') {
+                gamer.style.backgroundImage ="url('img/ingamedrax0.png')";
+            }
+            // let shootDivRect = shootDiv.getBoundingClientRect();
+            // console.log(shipRect)
 
 
         }
