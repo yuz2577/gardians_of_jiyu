@@ -1,3 +1,4 @@
+
 * {margin: 0px; padding: 0px; box-sizing: border-box; cursor: none;}
 ul,li {list-style: none;}
 
@@ -19,7 +20,7 @@ body {
     top: 0; left: 0;
     z-index: 9999;
     pointer-events: none;
-    transition: .15s;
+    transition: .05s;
     #mouseCursor {
         position: absolute;
         display: block;
@@ -27,7 +28,7 @@ body {
         border-radius: 50%;
         transition: all .5s ease-in-out;
         margin: -40px 0 0 -40px;
-        z-index :100;
+        z-index :9999;
         transform: scale(1);
         border: rgb(255, 255, 255) 2px solid;
         animation: NONE;
@@ -208,8 +209,8 @@ body {
     position: absolute;
     margin: 0;
     overflow: hidden;
-    top: 0px;
     z-index: 1000;
+    top: 0;
     display: none;
     #game {
         height: 100vh; width: 100%;
@@ -274,6 +275,7 @@ body {
             p {
                 font-size: 5vw;
                 color: gold;
+                font-weight: 900;
             }
             span {
                 &:hover {
@@ -308,11 +310,12 @@ body {
         }
         .gotoTop2 {
             position: absolute;
-            top: 80vh; left: 55vw;
-            transform: translate(-50%,-50%);
+            top: 80vh;
+            transform: translate(0%,-50%);
             color: white;
             font-size: 2vw;
-            width: 40vw; height: 10vh;
+            width: 50%; height: 10vh;
+            left: 25%;
             font-family: 'Tourney', cursive;
             &:hover {
                 font-weight: 600;
@@ -341,6 +344,7 @@ body {
             flex-direction: column;
             width: 100%;
             height: 100%;
+            top: -5%;
             justify-content: center;
             li {
                 display: flex;
@@ -363,7 +367,7 @@ body {
                     }
                 }
             }
-            li:nth-child(2) {
+            li:not(nth:nth-child(1)) {
                 .ruleBookText {
                     display: flex;
                     flex-direction: column;
@@ -376,6 +380,11 @@ body {
                 }
                 .ruleIMG {
                     padding-left: 1.5vw;
+                }
+            }
+            li:nth-child(3) {
+                img {
+                    width: 15%;
                 }
             }
         }
@@ -404,7 +413,10 @@ body {
         font-family: 'Tourney', cursive;
         // box-shadow: #6f00ff 0px  0px 50px;
         background: linear-gradient(#2871fa,#6717cd );
-        padding: 20px 40px;
+        width: 20vw; height:10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 50px;
         transition:.5s;
         &:hover {
@@ -414,14 +426,17 @@ body {
     }
     #rule {
         color: white;
-        font-size: 1.2vw;
+        font-size: 1.5vw;
         position: absolute;
         transform: translate(-50%,-50%);
-        top: 80vh;
+        top: 30vh;
         left: 50vw;
         font-family: 'Tourney', cursive;
         background: linear-gradient(#2871fa,#6717cd );
-        padding: 20px 40px;
+        width: 15vw; height: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-radius: 50px;
         transition:.5s;
         &:hover {
@@ -432,7 +447,7 @@ body {
 
 }
 
-.pipe {
+.ship {
     position: absolute;
     width: 50px;
 }
@@ -452,3 +467,406 @@ body {
 .imgload {
     display: none;
 }
+
+#mobileMove {
+    color: white;
+    position: absolute;
+    top: 75vh;
+    left: 13vw;
+    z-index: 999;
+    display: none;
+    i {
+        position: absolute;
+        font-size: 17vw;
+        &:nth-child(1) {
+            left: 2vw;
+            top: 2vh;
+        }
+        &:nth-child(2) {
+            left: -11vw;
+            top: 8vh;
+        }
+        &:nth-child(3) {
+            left: 15vw;
+            top: 8vh;
+        }
+        &:nth-child(4) {
+            left: 2vw;
+            top: 15vh;
+        }
+        &:nth-child(5) {
+            left: 68vw;
+            font-size: 17vw;
+            top: 8vh;
+        }
+    }
+}
+
+//반응형반응형반응형반응형반응형반응형✨✨✨✨✨✨//
+@media all and (min-width:1280px) and (max-width:1599px){
+    body { border: solid 2px red}
+    #whenClickDIV #leftName {
+        top: 5vh;
+    }
+    #whenClickDIV #rightName {
+        left: 90vw;
+    }
+}
+
+@media all and (min-width:1024px) and (max-width:1279px) {
+    body { border: solid 5px blue;}
+    #bgWrap ul li:nth-child(2) {
+        background-position-x: -7vw;
+    }
+    #bgWrap ul li:nth-child(3) {
+        background-position-x: -7vw;
+    }
+    #bgWrap ul li:nth-child(5) {
+        background-position-x: -10vw;
+    }
+    #whenClickDIV .profileName {
+        font-size:25vw;
+    }
+    #whenClickDIV #rightName {
+        font-size: 18vw;
+        top: 40vh;
+    }
+    #whenClickDIV #leftName {
+        top: 15vh;
+    }
+    #whenClickDIV #goGame {
+        font-size: 3.5vw;
+    }
+    #whenClickDIV #profileQu {
+        font-size: 2vw;
+    }
+    .gameSC #game #startBtn {
+        font-size: 6vw;
+        width: 50vw;
+    }
+    .gameSC #goToTop {
+        font-size: 2.5vw;
+        width: 30vw;
+    }
+    .gameSC .rulebook {
+        width: 70vw;
+    }
+    .gameSC .rulebook #ruleClose {
+        left: 65vw;
+    }
+    .gameSC #rule {
+        font-size: 2.5vw;
+        width: 20vw;
+    }
+    .gameSC #game .messageArea {
+        font-size: 3vw;
+    }
+
+    .gameSC #game .gotoTop2 {
+        font-size: 3vw;
+        width: 100%;
+    }
+}
+    @media all and (min-width:780px) and (max-width:1023px) {
+        body {border: solid 5px pink;}
+        #bgWrap ul li:nth-child(2) {
+            background-position-x: -20vw;
+        }
+        #bgWrap ul li:nth-child(3) {
+            background-position-x: -10vw;
+        }
+        #bgWrap ul li:nth-child(5) {
+            background-position-x: -18vw;
+        }
+        #whenClickDIV .profileName {
+            font-size:25vw;
+        }
+        #whenClickDIV #rightName {
+            font-size: 18vw;
+            top: 40vh;
+        }
+        #whenClickDIV #leftName {
+            top: 15vh;
+        }
+        #whenClickDIV #goGame {
+            padding: 3vh 6vw;
+            font-size: 3.5vw;
+        }
+        #whenClickDIV #profileQu {
+            font-size: 2vw;
+        }
+        .gameSC #game #startBtn {
+            font-size: 6vw;
+            width: 50vw;
+        }
+        .gameSC #goToTop {
+            font-size: 3vw;
+            width: 40vw;
+        }
+        .gameSC #rule {
+            font-size: 3vw;
+            width: 30vw;
+        }
+        .gameSC .rulebook {
+            width: 80vw;
+            font-size: 3vw;
+        }
+        .gameSC .rulebook ul li:not(nth:nth-child(1)) .ruleBookText span {
+            font-size: 1.8vw;
+        }
+        .gameSC .rulebook #ruleClose {
+            left: 75vw;
+        }
+        .gameSC .rulebook #ifDown {
+            font-size: 1.8vw;
+        }
+        .gameSC #game .messageArea {
+            font-size: 3vw;
+        }
+    
+        .gameSC #game .gotoTop2 {
+            font-size: 3vw;
+            width: 100%;
+        }
+    }
+
+    @media all and (min-width:640px) and (max-width:779px) {
+        body {border: solid 5px green;}
+        #bgWrap ul li:nth-child(2) {
+            background-position-x: -30vw;
+        }
+        #bgWrap ul li:nth-child(3) {
+            background-position-x: -15vw;
+        }
+        #bgWrap ul li:nth-child(5) {
+            background-position-x: -29vw;
+        }
+        #whenClickDIV {
+            background-position-x: -100vw;
+        }
+        #whenClickDIV #close  {
+            font-size: 9vw;
+            left: 90vw;
+        }
+        #whenClickDIV .profileName {
+            font-size:25vw;
+        }
+        #whenClickDIV #rightName {
+            font-size: 19vw;
+            top: 42vh;
+        }
+        #whenClickDIV #leftName {
+            top: 25vh;
+        }
+        #whenClickDIV #goGame {
+            padding: 3vh 8vw;
+            font-size: 5vw;
+        }
+        #whenClickDIV #profileQu {
+            font-size: 3vw;
+        }
+        .gameSC #game #startBtn {
+            font-size: 6.5vw;
+            width: 60vw;
+            height: 11vh;
+        }
+        .gameSC #goToTop {
+            font-size: 3.5vw;
+            width: 40vw;
+        }
+        .gameSC #rule {
+            font-size: 3.5vw;
+            width: 40vw;
+        }
+        .gameSC .rulebook {
+            width: 90vw;
+            font-size: 3vw;
+        }
+        .gameSC .rulebook ul li:not(nth:nth-child(1)) .ruleBookText span {
+            font-size: 1.8vw;
+        }
+        .gameSC .rulebook #ruleClose {
+            left: 85vw;
+            font-size: 5vw;
+        }
+        .gameSC .rulebook #ifDown {
+            font-size: 1.8vw;
+        }
+        .gameSC #game .messageArea {
+            font-size: 3vw;
+        }
+    
+        .gameSC #game .gotoTop2 {
+            font-size: 3vw;
+            width: 100%;
+        }
+    }
+    @media all and (min-width:480px) and (max-width:639px) {
+        body { border: solid 10px darkgoldenrod}
+        #bgWrap ul li:nth-child(2) {
+            background-position-x: -40vw;
+        }
+        #bgWrap ul li:nth-child(3) {
+            background-position-x: -25vw;
+        }
+        #bgWrap ul li:nth-child(5) {
+            background-position-x: -39vw;
+        }
+        #whenClickDIV {
+            background-position-x: -120vw;
+        }
+        #whenClickDIV #close  {
+            font-size: 9vw;
+            left: 90vw;
+        }
+        #whenClickDIV .profileName {
+            font-size:25vw;
+        }
+        #whenClickDIV #rightName {
+            font-size: 19vw;
+            top: 42vh;
+        }
+        #whenClickDIV #leftName {
+            top: 25vh;
+        }
+        #whenClickDIV #goGame {
+            padding: 3vh 8vw;
+            font-size: 5vw;
+        }
+        #whenClickDIV #profileQu {
+            font-size: 3vw;
+        }
+        .gameSC #game #startBtn {
+            font-size: 7vw;
+            width: 60vw;
+            height: 12vh;
+        }
+        .gameSC #goToTop {
+            font-size: 4.5vw;
+            width: 50vw;
+        }
+        .gameSC #rule {
+            font-size: 4.5vw;
+            width: 40vw;
+        }
+        .gameSC .rulebook {
+            width: 90vw;
+            font-size: 5vw;
+        }
+        .gameSC .rulebook ul li:not(nth:nth-child(1)) .ruleBookText span {
+            font-size: 2.3vw;
+        }
+        .gameSC .rulebook #ruleClose {
+            left: 85vw;
+            font-size: 5vw;
+        }
+        .gameSC .rulebook #ifDown {
+            font-size: 2.7vw;
+        }
+        .gameSC #game .messageArea {
+            font-size: 3vw;
+        }
+    
+        .gameSC #game .gotoTop2 {
+            font-size: 3vw;
+            width: 100%;
+        }
+        #mobileMove {
+            display: block;
+        }
+        #mobileMove i {
+            font-size: 16vw;
+        }
+    }
+    @media all and (max-width:479px) {
+        body { border: solid 5px turquoise}
+        #bgWrap ul li:nth-child(2) {
+            background-position-x: -60vw;
+        }
+        #bgWrap ul li:nth-child(3) {
+            background-position-x: -40vw;
+        }
+        #bgWrap ul li:nth-child(4) {
+            background-position-x: -45vw;
+        }
+        #bgWrap ul li:nth-child(5) {
+            background-position-x: -60vw;
+        }
+        #mouseBox #mouseCursor #mouseName  {
+            font-size: 10vw;
+            left: 80px;
+        }
+        #whenClickDIV {
+            background-position-x: -160vw;
+        }
+        #whenClickDIV #close  {
+            font-size: 9vw;
+            left: 90vw;
+        }
+        #whenClickDIV .profileName {
+            font-size:25vw;
+        }
+        #whenClickDIV #rightName {
+            font-size: 19vw;
+            top: 42vh;
+        }
+        #whenClickDIV #leftName {
+            top: 30vh;
+        }
+        #whenClickDIV #goGame {
+            padding: 3vh 10vw;
+            font-size: 6vw;
+            top: 60vh;
+        }
+        #whenClickDIV #profileQu {
+            font-size: 3.5vw;
+        }
+        .gameSC #game #startBtn {
+            font-size: 7vw;
+            width: 60vw;
+            height: 12vh;
+        }
+        .gameSC #goToTop {
+            font-size: 4.5vw;
+            width: 50vw;
+        }
+        .gameSC #rule {
+            font-size: 4.5vw;
+            width: 40vw;
+        }
+        .gameSC .rulebook {
+            width: 90vw;
+            font-size: 5vw;
+        }
+        .gameSC .rulebook ul li:not(nth:nth-child(1)) .ruleBookText span {
+            font-size: 2.3vw;
+        }
+        .gameSC .rulebook #ruleClose {
+            left: 85vw;
+            font-size: 5vw;
+        }
+        .gameSC .rulebook #ifDown {
+            font-size: 2.7vw;
+        }
+        .gameSC #game .messageArea {
+            font-size: 3vw;
+        }
+    
+        .gameSC #game .gotoTop2 {
+            font-size: 3vw;
+            width: 100%;
+        }
+
+        .gamer {
+            transform: scale(.5);
+        }
+        .enemyDiv {
+            transform: scale(.5);
+        }
+        #mobileMove {
+            display: block;
+        }
+    }
+    @media all and (min-width:480px) and (max-width:767px) {
+        body { border: solid 2px white}
+    }
