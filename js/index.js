@@ -205,7 +205,8 @@ mLeft.addEventListener('touchstart',mLeftFunctionOn);
 mLeft.addEventListener('touchend',mLeftFunctionOff);
 mRight.addEventListener('touchstart',mRightFunctionOn);
 mRight.addEventListener('touchend',mRightFunctionOff);
-
+mShoot.addEventListener('touchstart',mShootFunctionOn);
+mShoot.addEventListener('touchend',mShootFunctionOff);
 
 
 let keys = {}; //키입력상태 저장
@@ -214,6 +215,7 @@ let mobileUp = {};
 let mobileLeft ={};
 let mobileDown = {};
 let mobileRight ={};
+let mobileSpace ={};
 
 let player = {
         x:0, y:0, speed:2, score:0, inPlay: false
@@ -493,8 +495,43 @@ function playGame(){
             player.x -= player.speed *3;
             move = true;
         }
+
     
         if (keys.Space == true) {
+            let shootDiv = document.createElement('div');
+            let gamer = document.querySelector('.gamer');
+            shootDiv.setAttribute('class','shootDiv');
+            gamer.appendChild(shootDiv);
+       
+            shoots.x = shootDiv.offsetLeft;
+            // console.log(shoots.x)
+  
+            shootDiv.style.display = 'block'
+            // console.log(shoots.x)
+
+            if (leftName.innerHTML === 'GROOT') {
+                gamer.style.backgroundImage ="url('img/ingamegroot1.png')";
+            }
+            if (leftName.innerHTML === 'ROCKET') {
+                gamer.style.backgroundImage ="url('img/ingamerocket0.png')";
+                gamer.style.width = '100px';
+                gamer.style.height = '100px';
+                shootDiv.style.top = '40%'
+            }
+            if (leftName.innerHTML === 'STAR-LORD') {
+                gamer.style.backgroundImage ="url('img/ingamestarlord1.png')";
+            }
+            if (leftName.innerHTML === 'GAMORA') {
+                gamer.style.backgroundImage = "url('img/ingamegamora1.png')";
+                shootDiv.style.top = '68%'
+            }
+            if (leftName.innerHTML === 'Destroyer') {
+                gamer.style.backgroundImage ="url('img/ingamedrax1.png')";
+                shootDiv.style.top = '50%'
+            }
+        }
+
+        if (mobileSpace == true) {
             let shootDiv = document.createElement('div');
             let gamer = document.querySelector('.gamer');
             shootDiv.setAttribute('class','shootDiv');
@@ -700,8 +737,6 @@ for(let i=0; i<gaoPhoto.length; i++) {
             rightName.innerHTML = 'Drax'
             profileQu.innerHTML =`"What If Someone Does Something Irksome, <br> And I Decide To Remove His Spine?" `
         }
-
-
         console.log(i);
         mainLogo.style.opacity = '0'
         clickDiv.style.opacity = '1';
@@ -733,5 +768,11 @@ function mDownFunctionOn(e) {
 }
 function mDownFunctionOff(e) {
     mobileDown = false;
+}
+function mShootFunctionOn(e) {
+    mobileSpace = true;
+}
+function mShootFunctionOff(e) {
+    mobileSpace = false;
 }
 }  
