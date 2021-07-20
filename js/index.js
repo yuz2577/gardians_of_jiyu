@@ -459,10 +459,10 @@ function playGame(){
         if (keys.ArrowUp == true && player.y > 0) {
             player.y -= player.speed * 4;
             move = true;
+            console.log(player.speed)
         } 
         mUp.addEventListener('touchstart',() => {
-            player.y -= player.speed * 1.1;
-            move = true;
+            player.y -= player.speed * 1.00005;
         })
         if (keys.ArrowDown == true && player. y < gameArea.offsetHeight - gamer.offsetHeight) {
             player.y += player.speed * 2;
