@@ -26,6 +26,13 @@ window.onload = function() {
         gameArea = document.querySelector('#gameArea'),
         messageArea = document.querySelector('.messageArea');
 
+    let mobileMoves = document.querySelectorAll('i'),
+        mUp = mobileMoves[0],
+        mLeft = mobileMoves[1],
+        mRight = mobileMoves[2],
+        mDown = mobileMoves[3],
+        mShoot = mobileMoves[4];
+
     console.log(gaoPhoto.length);
     clickSaturate = true;
 
@@ -440,11 +447,11 @@ function playGame(){
             movePowerUp(gamer);
         };
 
-        
         if (keys.ArrowLeft == true && player.x > 0) {
             player.x -= player.speed *3;
             move = true;
         }
+
         if (keys.ArrowRight == true && player.x < gameArea.offsetWidth -gamer.offsetWidth) {
             player.x += player.speed * 2;
             move = true; 
@@ -453,6 +460,12 @@ function playGame(){
             player.y -= player.speed * 4;
             move = true;
         } 
+
+        mUp.addEventListener('touchstart',() => {
+            player.y -= player.speed * 4;
+            move = true;
+            console.log('fdfd')
+        })
         if (keys.ArrowDown == true && player. y < gameArea.offsetHeight - gamer.offsetHeight) {
             player.y += player.speed * 2;
             move = true;
@@ -607,6 +620,7 @@ function keyboardOff(e) {
 }
 
 
+
 for(let i=0; i<gaoPhoto.length; i++) {
     gaoPhoto[i].addEventListener('click',function(event) {
         clickDiv.style.zIndex = '90';
@@ -668,5 +682,6 @@ for(let i=0; i<gaoPhoto.length; i++) {
 
     })
 }
-//총알발사 연습
+//모바일터치
+
 }  
