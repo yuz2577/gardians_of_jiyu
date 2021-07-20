@@ -37,40 +37,8 @@ window.onload = function() {
     clickSaturate = true;
 
 //사파리ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ
-checkBroswer()
-function checkBroswer(){
-
-    var agent = navigator.userAgent.toLowerCase(),
-        name = navigator.appName,
-        browser = '';
- 
-    // MS 계열 브라우저를 구분
-    if(name === 'Microsoft Internet Explorer' || agent.indexOf('trident') > -1 || agent.indexOf('edge/') > -1) {
-        browser = 'ie';
-        if(name === 'Microsoft Internet Explorer') { // IE old version (IE 10 or Lower)
-            agent = /msie ([0-9]{1,}[\.0-9]{0,})/.exec(agent);
-            browser += parseInt(agent[1]);
-        } else { // IE 11+
-            if(agent.indexOf('trident') > -1) { // IE 11
-                browser += 11;
-            } else if(agent.indexOf('edge/') > -1) { // Edge
-                browser = 'edge';
-            }
-        }
-    } else if(agent.indexOf('safari') > -1) { // Chrome or Safari
-        if(agent.indexOf('opr') > -1) { // Opera
-            browser = 'opera';
-        } else if(agent.indexOf('chrome') > -1) { // Chrome
-            browser = 'chrome';
-        } else { // Safari
-            browser = 'safari';
-            alert('현재 브라우저는 Safari입니다. 크롬/네이버를 이용해주세요')
-        }
-    } else if(agent.indexOf('firefox') > -1) { // Firefox
-        browser = 'firefox';
-    }
-}
-
+var location = section.offsetTop;
+console.log(location)
 
 
     function startClickTimer() {
@@ -94,7 +62,7 @@ function checkBroswer(){
     goGame.addEventListener('mousedown', () => {
         goGame.style.transition = 'none'
         goGame.style.backgroundColor = 'rgb(66, 213, 221)';
-        section.scrollIntoView({behavior:'smooth'});
+        window.scrollTo({top:location})
         mouseName.innerHTML = '0'
     })
 
@@ -143,7 +111,7 @@ function checkBroswer(){
         mouseCursor.classList.remove('mouseEnter')
     })
     goToTop.addEventListener('click', () => {
-        bgWrap.scrollIntoView({behavior:'smooth'})
+        window.scrollTo({top:bgWrap.offsetTop})
     })
 
 
@@ -178,7 +146,7 @@ function checkBroswer(){
 
 
     goToTop2.addEventListener('click',() =>{
-        bgWrap.scrollIntoView({behavior:'smooth'})
+        window.scrollTo({top:bgWrap.offsetTop});
     })
     
 
