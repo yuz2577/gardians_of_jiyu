@@ -37,8 +37,47 @@ window.onload = function() {
     clickSaturate = true;
 
 //사파리ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ
-var location = section.offsetTop;
-console.log(location)
+var agent = navigator.userAgent.toLowerCase();
+
+if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1) ) {
+
+  alert("인터넷 익스플로러 브라우저 입니다.");
+
+}
+
+else {
+
+  alert("인터넷 익스플로러 브라우저가 아닙니다.");
+
+}
+
+
+
+var agent = navigator.userAgent.toLowerCase();
+
+if (agent.indexOf("chrome") != -1) {
+
+  alert("크롬 브라우저입니다.");
+
+}
+
+var agent = navigator.userAgent.toLowerCase();
+
+if (agent.indexOf("safari") != -1) {
+
+  alert("사파리 브라우저입니다.");
+
+}
+
+
+var agent = navigator.userAgent.toLowerCase();
+
+if (agent.indexOf("firefox") != -1) {
+
+  alert("파이어폭스 브라우저입니다.");
+
+}
+
 
 
     function startClickTimer() {
@@ -62,8 +101,7 @@ console.log(location)
     goGame.addEventListener('mousedown', () => {
         goGame.style.transition = 'none'
         goGame.style.backgroundColor = 'rgb(66, 213, 221)';
-        window.scrollTo({top:section.offsetTop});
-        body.scrollTo({top:section.offsetTop});
+        section.scrollIntoView({behavior:'smooth'});
         mouseName.innerHTML = '0'
     })
 
@@ -112,8 +150,7 @@ console.log(location)
         mouseCursor.classList.remove('mouseEnter')
     })
     goToTop.addEventListener('click', () => {
-        window.scrollTo({top:bgWrap.offsetTop});
-        body.scrollTo({top:bgWrap.offsetTop});
+        bgWrap.scrollIntoView({behavior:'smooth'})
     })
 
 
@@ -148,8 +185,7 @@ console.log(location)
 
 
     goToTop2.addEventListener('click',() =>{
-        window.scrollTo({top:bgWrap.offsetTop});
-        body.scrollTo({top:bgWrap.offsetTop});
+        bgWrap.scrollIntoView({behavior:'smooth'})
     })
     
 
