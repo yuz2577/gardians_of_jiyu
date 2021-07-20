@@ -196,15 +196,24 @@ startBtn.addEventListener('click',start);
 messageArea.addEventListener('click',start);
 document.addEventListener('keydown', keyboardOn);
 document.addEventListener('keyup',keyboardOff);
+//모바일모바일버튼모바일버튼모바일//
 mUp.addEventListener('touchstart',mUpFunctionOn);
 mUp.addEventListener('touchend',mUpFunctionOff);
-
+mDown.addEventListener('touchstart',mDownFunctionOn);
+mDown.addEventListener('touchend',mDownFunctionOff);
+mLeft.addEventListener('touchstart',mLeftFunctionOn);
+mLeft.addEventListener('touchend',mLeftFunctionOff);
+mRight.addEventListener('touchstart',mRightFunctionOn);
+mRight.addEventListener('touchend',mRightFunctionOff);
 
 
 
 let keys = {}; //키입력상태 저장
 
-let mobileClick = {};
+let mobileUp = {};
+let mobileLeft ={};
+let mobileDown = {};
+let mobileRight ={};
 
 let player = {
         x:0, y:0, speed:2, score:0, inPlay: false
@@ -464,13 +473,24 @@ function playGame(){
             move = true;
             console.log(player.speed)
         } 
-        if (mobileClick == true && player.y > 0) {
-            player.y -= player.speed * 4;
-            move = true;
-            console.log(player.speed)
-        }
         if (keys.ArrowDown == true && player. y < gameArea.offsetHeight - gamer.offsetHeight) {
             player.y += player.speed * 2;
+            move = true;
+        }
+        if (mobileUp == true && player.y > 0) {
+            player.y -= player.speed * 4;
+            move = true;
+        }
+        if (mobileDown == true && player. y < gameArea.offsetHeight - gamer.offsetHeight) {
+            player.y += player.speed * 2;
+            move = true;
+        }
+        if (mobileRight == true && player.x < gameArea.offsetWidth -gamer.offsetWidth) {
+            player.x += player.speed * 2;
+            move = true; 
+        }
+        if (mobileLeft == true && player.x > 0) {
+            player.x -= player.speed *3;
             move = true;
         }
     
@@ -690,11 +710,28 @@ for(let i=0; i<gaoPhoto.length; i++) {
 }
 //모바일터치
 function mUpFunctionOn(e) {
-    mobileClick = true;
+    mobileUp = true;
     console.log(mobileClick)
 }
 function mUpFunctionOff(e) {
-    mobileClick = false;
-    console.log(mobileClick)
+    mobileUp = false;
+}
+function mLeftFunctionOn(e) {
+    mobileLeft = true;
+}
+function mLeftFunctionOff(e) {
+    mobileLeft = false;
+}
+function mRightFunctionOn(e) {
+    mobileRight = true;
+}
+function mRightFunctionOff(e) {
+    mobileRight = false;
+}
+function mDownFunctionOn(e) {
+    mobileDown = true;
+}
+function mDownFunctionOff(e) {
+    mobileDown = false;
 }
 }  
