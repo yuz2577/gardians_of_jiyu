@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@900&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Gardians Of Jiyu!</title>
 </head>
 <body>
     <div id="mouseBox">
@@ -55,6 +56,16 @@
                 <li class="gameBg"></li>
                 <li class="gameBg"></li>
                 <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
+                <li class="gameBg"></li>
             </ul>
             <button type="button" id="startBtn">Press Start</button>
             <div id="goToTop">Reselect Chracter</div>
@@ -62,7 +73,7 @@
             <div id="gameArea">
             </div>
             <div class="messageArea hide"></div>
-            <div class="gotoTop2 hide">Reselect Chracter : CLICK HERE</div>
+            <div class="gotoTop2 opacityHide">Reselect Chracter : CLICK HERE</div>
             <div id="score"></div>
             <div class="rulebook hide">
                 <ul>
@@ -72,15 +83,41 @@
                     </li>
                     <li>
                         <p class="ruleBookText">SHOOTING
-                            <span>(슈팅은 한 번씩 하나만 쏠 수 있습니다)</span>
+                            <span>슈팅은 한 번씩 하나만 쏠 수 있습니다 <br>(불가피하게도 연사는 불가)</span>
                         </p>
                         <p class="ruleIMG"><img src="img/keySpace.png"></p>
+                    </li>
+                    <li>
+                        <p class="ruleBookText">POWER UP
+                            <span> (아이템을 획득하면 <br>슈팅사이즈가 조금씩 커집니다)</span>
+                        </p>
+                        <p class="ruleIMG"><img src="img/powerUp.png"></p>
+
                     </li>
                 </ul>
                 <span id="ifDown">*바닥에 닿을 시 게임 종료*</span>
                 <div id="ruleClose">X</div>
             </div>
+            <div id="mobileMove">
+                <i class="fas fa-arrow-circle-up"></i>
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                <i class="fas fa-arrow-alt-circle-right"></i>
+                <i class="fas fa-arrow-alt-circle-down"></i>
+                <i class="fas fa-bahai"></i>
+            </div>
         </div>
+
+        <img class="imgLoad" src="img/ingameDrax1.PNG">
+        <img class="imgLoad" src="img/ingameDrax0.PNG">
+        <img class="imgLoad" src="img/ingameGamora.PNG">
+        <img class="imgLoad" src="img/ingameGamora1.PNG">
+        <img class="imgLoad" src="img/ingameStarlord0.PNG">
+        <img class="imgLoad" src="img/ingameStarlord1.PNG">
+        <img class="imgLoad" src="img/ingameGroot0.png">
+        <img class="imgLoad" src="img/ingameGroot1.PNG">
+        <img class="imgLoad" src="img/ingameRocket0.png">
+        <img class="imgLoad" src="img/ingameRocket1.png">
+
     </section>
 
     <script src="js/index.js"></script>
