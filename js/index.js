@@ -196,11 +196,15 @@ startBtn.addEventListener('click',start);
 messageArea.addEventListener('click',start);
 document.addEventListener('keydown', keyboardOn);
 document.addEventListener('keyup',keyboardOff);
+mUp.addEventListener('touchstart',mUpFunctionOn);
+mUp.addEventListener('touchend',mUpFunctionOff);
+
 
 
 
 let keys = {}; //키입력상태 저장
 
+let mobileClick = {};
 
 let player = {
         x:0, y:0, speed:2, score:0, inPlay: false
@@ -451,7 +455,6 @@ function playGame(){
             player.x -= player.speed *3;
             move = true;
         }
-
         if (keys.ArrowRight == true && player.x < gameArea.offsetWidth -gamer.offsetWidth) {
             player.x += player.speed * 2;
             move = true; 
@@ -461,9 +464,11 @@ function playGame(){
             move = true;
             console.log(player.speed)
         } 
-        mUp.addEventListener('touchstart',() => {
-            player.y -= player.speed * 1.00005;
-        })
+        if (mobileClick == true && player.y > 0) {
+            player.y -= player.speed * 4;
+            move = true;
+            console.log(player.speed)
+        }
         if (keys.ArrowDown == true && player. y < gameArea.offsetHeight - gamer.offsetHeight) {
             player.y += player.speed * 2;
             move = true;
@@ -609,6 +614,7 @@ function powerUpgrade() {
 function keyboardOn(e) {
     // console.log('on');
     keys[e.code] = true;
+    console.log(e.code)
     // console.log(keys)
 }
 
@@ -616,6 +622,8 @@ function keyboardOff(e) {
     // console.log('off')
     keys[e.code] = false;
 }
+
+
 
 
 
@@ -681,5 +689,12 @@ for(let i=0; i<gaoPhoto.length; i++) {
     })
 }
 //모바일터치
-
+function mUpFunctionOn(e) {
+    mobileClick = true;
+    console.log(mobileClick)
+}
+function mUpFunctionOff(e) {
+    mobileClick = false;
+    console.log(mobileClick)
+}
 }  
