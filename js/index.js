@@ -62,7 +62,8 @@ console.log(location)
     goGame.addEventListener('mousedown', () => {
         goGame.style.transition = 'none'
         goGame.style.backgroundColor = 'rgb(66, 213, 221)';
-        window.scrollTo({top:location})
+        window.scrollTo({top:section.offsetTop});
+        body.scrollTo({top:section.offsetTop});
         mouseName.innerHTML = '0'
     })
 
@@ -111,7 +112,8 @@ console.log(location)
         mouseCursor.classList.remove('mouseEnter')
     })
     goToTop.addEventListener('click', () => {
-        window.scrollTo({top:bgWrap.offsetTop})
+        window.scrollTo({top:bgWrap.offsetTop});
+        body.scrollTo({top:bgWrap.offsetTop});
     })
 
 
@@ -147,6 +149,7 @@ console.log(location)
 
     goToTop2.addEventListener('click',() =>{
         window.scrollTo({top:bgWrap.offsetTop});
+        body.scrollTo({top:bgWrap.offsetTop});
     })
     
 
