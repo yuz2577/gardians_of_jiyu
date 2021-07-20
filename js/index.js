@@ -457,11 +457,11 @@ function playGame(){
             move = true; 
         }
         if (keys.ArrowUp == true && player.y > 0) {
-            player.y -= player.speed * 1.1;
+            player.y -= player.speed * 4;
             move = true;
         } 
         mUp.addEventListener('touchstart',() => {
-            player.y -= player.speed * 4;
+            player.y -= player.speed * 1.1;
             move = true;
         })
         if (keys.ArrowDown == true && player. y < gameArea.offsetHeight - gamer.offsetHeight) {
