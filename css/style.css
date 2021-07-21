@@ -398,13 +398,13 @@ body {
 .gameSC #game .gotoTop2 {
   position: absolute;
   top: 80vh;
-  -webkit-transform: translate(0%, -50%);
-          transform: translate(0%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   color: white;
   font-size: 2vw;
-  width: 50%;
+  width: auto;
   height: 10vh;
-  left: 25%;
+  left: 50%;
   font-family: 'Tourney', cursive;
 }
 
@@ -728,7 +728,6 @@ body {
   }
   .gameSC #game .gotoTop2 {
     font-size: 3vw;
-    width: 100%;
   }
 }
 
@@ -792,7 +791,6 @@ body {
   }
   .gameSC #game .gotoTop2 {
     font-size: 3vw;
-    width: 100%;
   }
 }
 
@@ -865,7 +863,6 @@ body {
   }
   .gameSC #game .gotoTop2 {
     font-size: 3vw;
-    width: 100%;
   }
 }
 
@@ -938,7 +935,6 @@ body {
   }
   .gameSC #game .gotoTop2 {
     font-size: 3vw;
-    width: 100%;
   }
   #mobileMove {
     display: block;
@@ -1025,7 +1021,6 @@ body {
   }
   .gameSC #game .gotoTop2 {
     font-size: 3vw;
-    width: 100%;
   }
   .gamer {
     -webkit-transform: scale(0.5);
@@ -1037,12 +1032,7 @@ body {
   }
   #mobileMove {
     display: block;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 767px) {
-  body {
-    border: solid 2px white;
+    top: 70vh;
   }
 }
 /*# sourceMappingURL=style.css.map */

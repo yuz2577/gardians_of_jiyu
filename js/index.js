@@ -27,6 +27,7 @@ window.onload = function() {
         messageArea = document.querySelector('.messageArea');
 
     let mobileMoves = document.querySelectorAll('i'),
+        mobileMove = document.querySelector('#mobileMove'),
         mUp = mobileMoves[0],
         mLeft = mobileMoves[1],
         mRight = mobileMoves[2],
@@ -36,9 +37,8 @@ window.onload = function() {
     console.log(gaoPhoto.length);
     clickSaturate = true;
 
-
-
-
+    console.log(mobileMove)
+    mobileMove.style.display = 'none';
     function startClickTimer() {
     let clickSaturate =  setTimeout(() => {
         blackBg.style.opacity = '.5';
@@ -295,6 +295,8 @@ function start() {
 
     gamer.setAttribute('class', 'gamer');
     gameArea.appendChild(gamer);
+
+    mobileMove.style.display = "block"
     
 
     ship.startPos = 0;
@@ -679,6 +681,7 @@ function playGameOver() {
     player.inPlay = false;
     messageArea.classList.remove('hide');
     goToTop2.classList.remove('hide');
+    mobileMove.style.display = "none"
 
     messageArea.innerHTML = `
     Your score is <p> ${player.score} </p>

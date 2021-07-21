@@ -311,11 +311,11 @@ body {
         .gotoTop2 {
             position: absolute;
             top: 80vh;
-            transform: translate(0%,-50%);
+            transform: translate(-50%,-50%);
             color: white;
             font-size: 2vw;
-            width: 50%; height: 10vh;
-            left: 25%;
+            width:auto; height: 10vh;
+            left: 50%;
             font-family: 'Tourney', cursive;
             &:hover {
                 font-weight: 600;
@@ -564,7 +564,6 @@ body {
 
     .gameSC #game .gotoTop2 {
         font-size: 3vw;
-        width: 100%;
     }
 }
     @media all and (min-width:780px) and (max-width:1023px) {
@@ -626,7 +625,6 @@ body {
     
         .gameSC #game .gotoTop2 {
             font-size: 3vw;
-            width: 100%;
         }
     }
 
@@ -698,7 +696,6 @@ body {
     
         .gameSC #game .gotoTop2 {
             font-size: 3vw;
-            width: 100%;
         }
     }
     @media all and (min-width:480px) and (max-width:639px) {
@@ -769,7 +766,6 @@ body {
     
         .gameSC #game .gotoTop2 {
             font-size: 3vw;
-            width: 100%;
         }
         #mobileMove {
             display: block;
@@ -854,7 +850,6 @@ body {
     
         .gameSC #game .gotoTop2 {
             font-size: 3vw;
-            width: 100%;
         }
 
         .gamer {
@@ -865,8 +860,6 @@ body {
         }
         #mobileMove {
             display: block;
+            top: 70vh;
         }
-    }
-    @media all and (min-width:480px) and (max-width:767px) {
-        body { border: solid 2px white}
     }
