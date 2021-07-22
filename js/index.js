@@ -192,6 +192,7 @@ window.onload = function() {
 
 
 /////////////게임게임/////////////
+console.log(window.innerWidth)
 
 startBtn.addEventListener('click',start);
 messageArea.addEventListener('click',start);
@@ -295,9 +296,9 @@ function start() {
 
     gamer.setAttribute('class', 'gamer');
     gameArea.appendChild(gamer);
-
+    if (window.innerWidth <= 480) {
     mobileMove.style.display = "block"
-    
+    }
 
     ship.startPos = 0;
     ship.spaceBetweenRow = 150;
