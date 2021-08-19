@@ -33,45 +33,46 @@ window.onload = function() {
         mRight = mobileMoves[2],
         mDown = mobileMoves[3],
         mShoot = mobileMoves[4];
-        mobileMove.style.display = 'none';
-    // console.log(gaoPhoto.length);
-    albumClick = true;
 
-    // console.log(mobileMove)
-    
-    function albumClickTimer() {
-    let albumClick =  setTimeout(() => {
+    console.log(gaoPhoto.length);
+    clickSaturate = true;
+
+    console.log(mobileMove)
+    mobileMove.style.display = 'none';
+    function startClickTimer() {
+    let clickSaturate =  setTimeout(() => {
         blackBg.style.opacity = '.5';
         blackBg.style.zIndex = '100';
         close.style.opacity = '1'
-        // console.log('zz');
-        albumClick = true;
-        // console.log(albumClick)
-        if(albumClick == true) { setTimeout(() => {
+        console.log('zz');
+        clickSaturate = true;
+        // console.log(clickSaturate)
+        if(clickSaturate == true) { setTimeout(() => {
             leftName.style.left = '10vw';
             rightName.style.left = '40vw';
             profileQu.style.top = '80vh';
             goGame.style.opacity = '1'
-            // console.log('zzzzz')
+            console.log('zzzzz')
         },500)}
     },1000)};
 
     
     goGame.addEventListener('mousedown', () => {
-        goGame.style.transition = 'none';
+        goGame.style.transition = 'none'
         goGame.style.backgroundColor = 'rgb(66, 213, 221)';
-        gameSC.style.display = 'block';
+        gameSC.style.display = 'block'
+        mouseName.innerHTML = '0'
     })
 
-    // goGame.addEventListener('mouseup', () => {
-    //     goGame.style.transition = 'none';
-    //     goGame.style.backgroundColor = '#78F8FF';
-    // })
+    goGame.addEventListener('mouseup', () => {
+        goGame.style.transition = 'none'
+        goGame.style.backgroundColor = '#78F8FF';
+    })
 
     if (clickDiv.style.opacity == '0') {
         blackBg.style.zIndex = '0';
         blackBg.style.opacity = '0';
-        // console.log('zz')
+        console.log('zz')
     }
     
     
@@ -119,7 +120,7 @@ window.onload = function() {
         mouseCursor.classList.remove('mouseEnter')
     })
     rule.addEventListener('click',() =>{
-        ruleBook.classList.remove('hide');
+        ruleBook.classList.remove('hide')
     })
 
     ruleBook.addEventListener('mouseover',()=>{
@@ -131,7 +132,7 @@ window.onload = function() {
 
 
     ruleBookClose.addEventListener('click',() => {
-        ruleBook.classList.add('hide');
+        ruleBook.classList.add('hide')
     })
     ruleBookClose.addEventListener('mouseenter',() => {
         mouseCursor.classList.add('mouseEnter')
@@ -288,6 +289,7 @@ function start() {
     goToTop2.classList.add('hide');
     goToTop2.classList.add('hide')
     rule.classList.add('hide');
+
     messageArea.classList.add('hide');
     startBtn.classList.add('hide');
     goToTop.classList.add('hide');
@@ -327,7 +329,6 @@ function start() {
 }
 
 function makePowerUp(powerUpPos) {
-    console.log(powerUpPos +'GGGGGGGGGGGG')
     let totalHeight = gameArea.offsetHeight,
         totalWidth = gameArea.offsetWidth,
         powerUp = document.createElement('div'); //위쪽파이프
@@ -338,8 +339,8 @@ function makePowerUp(powerUpPos) {
     powerUp.x = totalWidth + powerUpPos;
     powerUp.style.top = Math.floor(Math.random()*1000) + 'px';
     powerUp.style.backgroundImage = "url('img/powerUp.png')";
+
     gameArea.appendChild(powerUp);
-    console.log(powerUp.style.left +'픽셀')
 }
 
 function makeship(shipPos) { //
@@ -403,7 +404,7 @@ function moveships(gamer) {
 }
 function movePowerUp(gamer) {
     let powerUps = document.querySelectorAll('.powerUp');
-    // let counters = 0;
+    let counters = 0;
     powerUps.forEach(function(items) { //item에 들어있는 각각의 ships들
     items.x -= player.speed*2;
     if (player.score >= 500) {
@@ -419,7 +420,7 @@ function movePowerUp(gamer) {
     // console.log(items.style.left)
     if(items.x < 0) {
         items.parentElement.removeChild(items);
-        // counters ++;
+        counters ++;
     }
     if(powerUpGet(items, gamer)) {
         powerUpgrade(0);
@@ -740,14 +741,14 @@ for(let i=0; i<gaoPhoto.length; i++) {
         function clearSaturate() {blackBg.style.zIndex = '0'}
         if (i==0) {
             clickDiv.style.backgroundImage = 'url(img/groot.png)';
-            albumClickTimer();
+            startClickTimer();
             closeFc();
             leftName.innerHTML = 'GROOT'
             rightName.innerHTML = 'GROOT'
         }
         if (i==1) {
             clickDiv.style.backgroundImage = 'url(img/rocket.png)';
-            albumClickTimer();
+            startClickTimer();
             closeFc();
             leftName.innerHTML = 'ROCKET'
             rightName.innerHTML = 'RACCOON'
@@ -755,21 +756,21 @@ for(let i=0; i<gaoPhoto.length; i++) {
         }
         if (i==2) {
             clickDiv.style.backgroundImage = 'url(img/starlord1.png)';
-            albumClickTimer(); closeFc()
+            startClickTimer(); closeFc()
             leftName.innerHTML = 'STAR-LORD'
             rightName.innerHTML = 'QUILL'
             profileQu.innerHTML =`"You Said It Yourself, B****.<br> We're The Guardians Of The Galaxy." `
         }
         if (i==3) {
             clickDiv.style.backgroundImage = 'url(img/gamora.png)';
-            albumClickTimer(); closeFc()
+            startClickTimer(); closeFc()
             leftName.innerHTML = 'GAMORA'
             rightName.innerHTML = 'ZEN'
             profileQu.innerHTML =`"I Have Lived Most Of My Life Surrounded By Enemies. <br> I Will Be Grateful To Die Among My Friends."`
         }
         if (i==4) {
             clickDiv.style.backgroundImage = 'url(img/drax.png)';
-            albumClickTimer(); closeFc();
+            startClickTimer(); closeFc();
             leftName.innerHTML = 'Destroyer'
             rightName.innerHTML = 'Drax'
             profileQu.innerHTML =`"What If Someone Does Something Irksome, <br> And I Decide To Remove His Spine?" `
