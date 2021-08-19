@@ -166,7 +166,7 @@ window.onload = function() {
         mouseName.innerHTML = ''
     })
     //마우스마우스//
-    let mouseX = 0, mouseY= 0, x = 0, y = 0
+    let mouseX = 0, mouseY= 0, x = 0, y = 0;
     // console.log(mouseCursor);
     window.addEventListener("mousemove",function(event) {
         x=event.pageX;
@@ -190,7 +190,64 @@ window.onload = function() {
     })
     
 
-
+    for(let i=0; i<gaoPhoto.length; i++) {
+        gaoPhoto[i].addEventListener('click',function(event) {
+            clickDiv.style.zIndex = '90';
+            function closeFc() {close.addEventListener('click',() => {
+                clickDiv.style.opacity='0';
+                close.style.opacity = '0'
+                blackBg.style.opacity = '0';
+                blackBg.style.zIndex = '0';
+                console.log('zzz');
+                clickDiv.style.zIndex = '0';
+                leftName.style.left = '-100vw';
+                rightName.style.left = '100vw';
+                profileQu.style.top = '150vh';
+                goGame.style.opacity = '0'
+            })}
+    
+            if (i==0) {
+                clickDiv.style.backgroundImage = 'url(img/groot.png)';
+                startClickTimer();
+                closeFc();
+                leftName.innerHTML = 'GROOT'
+                rightName.innerHTML = 'GROOT'
+            }
+            if (i==1) {
+                clickDiv.style.backgroundImage = 'url(img/rocket.png)';
+                startClickTimer();
+                closeFc();
+                leftName.innerHTML = 'ROCKET'
+                rightName.innerHTML = 'RACCOON'
+                profileQu.innerHTML =`"Well, Now I'm Standing. Happy?<br> We're All Standing Now. <br> Bunch Of Jackasses Standing In A Circle."`
+            }
+            if (i==2) {
+                clickDiv.style.backgroundImage = 'url(img/starlord1.png)';
+                startClickTimer(); closeFc()
+                leftName.innerHTML = 'STAR-LORD'
+                rightName.innerHTML = 'QUILL'
+                profileQu.innerHTML =`"You Said It Yourself, B****.<br> We're The Guardians Of The Galaxy." `
+            }
+            if (i==3) {
+                clickDiv.style.backgroundImage = 'url(img/gamora.png)';
+                startClickTimer(); closeFc()
+                leftName.innerHTML = 'GAMORA'
+                rightName.innerHTML = 'ZEN'
+                profileQu.innerHTML =`"I Have Lived Most Of My Life Surrounded By Enemies. <br> I Will Be Grateful To Die Among My Friends."`
+            }
+            if (i==4) {
+                clickDiv.style.backgroundImage = 'url(img/drax.png)';
+                startClickTimer(); closeFc();
+                leftName.innerHTML = 'Destroyer'
+                rightName.innerHTML = 'Drax'
+                profileQu.innerHTML =`"What If Someone Does Something Irksome, <br> And I Decide To Remove His Spine?" `
+            }
+            console.log(i);
+            mainLogo.style.opacity = '0'
+            clickDiv.style.opacity = '1';
+    
+        })
+    }
 /////////////게임게임/////////////
 console.log(window.innerWidth)
 
@@ -249,15 +306,17 @@ function start() {
     let gamer = document.createElement('div');
     gamer.classList.add('gamer');
     document.querySelector('#gameArea').appendChild(gamer);
+    
     let shootDiv = document.createElement('div');
-        shootDiv.setAttribute('class','shootDiv');
+        // shootDiv.setAttribute('class','shootDiv');
+        shootDiv.classList.add('shootDiv');
         gamer.appendChild(shootDiv);
 
     shoots.size = 1.1
 
     if (leftName.innerHTML === 'GROOT') {
         gamer.style.backgroundImage ="url('img/ingamegroot0.png')";
-        gamer.style.width ='80px'
+        gamer.style.width ='80px';
         gamer.style.height = '200px';
     }
     if (leftName.innerHTML === 'ROCKET') {
@@ -287,7 +346,7 @@ function start() {
     gameArea.innerHTML = '';
 
     goToTop2.classList.add('hide');
-    goToTop2.classList.add('hide')
+    goToTop2.classList.add('hide');
     rule.classList.add('hide');
 
     messageArea.classList.add('hide');
@@ -299,7 +358,6 @@ function start() {
     if (window.innerWidth <= 480) {
     mobileMove.style.display = "block"
     }
-
     ship.startPos = 0;
     ship.spaceBetweenRow = 150;
     ship.shipCount = Math.floor(gameArea.offsetWidth / ship.spaceBetweenRow)
@@ -437,7 +495,6 @@ function isCollide(ship, gamer) {
         shipRect.left < gamerRect.right &&
         shipRect.right > gamerRect.left
     );
-//    console.log(gamerRect)
 }
 
 function powerUpGet(powerUpClass, gamer) {
@@ -465,20 +522,19 @@ function playGame(){
         if(player.score >= 5000) {
             movePowerUp(gamer);
         };
-
         if (keys.ArrowLeft == true && player.x > 0) {
             player.x -= player.speed *3;
             move = true;
-        }
+        };
         if (keys.ArrowRight == true && player.x < gameArea.offsetWidth -gamer.offsetWidth) {
             player.x += player.speed * 2;
             move = true; 
-        }
+        };
         if (keys.ArrowUp == true && player.y > 0) {
             player.y -= player.speed * 4;
             move = true;
             console.log(player.speed)
-        } 
+        };
         if (keys.ArrowDown == true && player. y < gameArea.offsetHeight - gamer.offsetHeight) {
             player.y += player.speed * 2;
             move = true;
@@ -669,13 +725,11 @@ function noships(ship, shootDiv) {
             // console.log('fdfdf')
             if ( shipRect.left < shootRect.right && shipRect.right > shootRect.left) {
                     ship.style.display = 'none';
-                    console.log('dd'); 
+                    // console.log('dd'); 
                     shoots.x = 0;     
                     player.score += 500;  
         }
     }
-
-    
 }
 
 function playGameOver() {
@@ -722,65 +776,7 @@ function keyboardOff(e) {
 
 
 
-for(let i=0; i<gaoPhoto.length; i++) {
-    gaoPhoto[i].addEventListener('click',function(event) {
-        clickDiv.style.zIndex = '90';
-        function closeFc() {close.addEventListener('click',() => {
-            clickDiv.style.opacity='0';
-            close.style.opacity = '0'
-            blackBg.style.opacity = '0';
-            blackBg.style.zIndex = '0';
-            console.log('zzz');
-            clickDiv.style.zIndex = '0';
-            leftName.style.left = '-100vw';
-            rightName.style.left = '100vw';
-            profileQu.style.top = '150vh';
-            goGame.style.opacity = '0'
-        })}
 
-        function clearSaturate() {blackBg.style.zIndex = '0'}
-        if (i==0) {
-            clickDiv.style.backgroundImage = 'url(img/groot.png)';
-            startClickTimer();
-            closeFc();
-            leftName.innerHTML = 'GROOT'
-            rightName.innerHTML = 'GROOT'
-        }
-        if (i==1) {
-            clickDiv.style.backgroundImage = 'url(img/rocket.png)';
-            startClickTimer();
-            closeFc();
-            leftName.innerHTML = 'ROCKET'
-            rightName.innerHTML = 'RACCOON'
-            profileQu.innerHTML =`"Well, Now I'm Standing. Happy?<br> We're All Standing Now. <br> Bunch Of Jackasses Standing In A Circle."`
-        }
-        if (i==2) {
-            clickDiv.style.backgroundImage = 'url(img/starlord1.png)';
-            startClickTimer(); closeFc()
-            leftName.innerHTML = 'STAR-LORD'
-            rightName.innerHTML = 'QUILL'
-            profileQu.innerHTML =`"You Said It Yourself, B****.<br> We're The Guardians Of The Galaxy." `
-        }
-        if (i==3) {
-            clickDiv.style.backgroundImage = 'url(img/gamora.png)';
-            startClickTimer(); closeFc()
-            leftName.innerHTML = 'GAMORA'
-            rightName.innerHTML = 'ZEN'
-            profileQu.innerHTML =`"I Have Lived Most Of My Life Surrounded By Enemies. <br> I Will Be Grateful To Die Among My Friends."`
-        }
-        if (i==4) {
-            clickDiv.style.backgroundImage = 'url(img/drax.png)';
-            startClickTimer(); closeFc();
-            leftName.innerHTML = 'Destroyer'
-            rightName.innerHTML = 'Drax'
-            profileQu.innerHTML =`"What If Someone Does Something Irksome, <br> And I Decide To Remove His Spine?" `
-        }
-        console.log(i);
-        mainLogo.style.opacity = '0'
-        clickDiv.style.opacity = '1';
-
-    })
-}
 //모바일터치
 function mUpFunctionOn(e) {
     mobileUp = true;
